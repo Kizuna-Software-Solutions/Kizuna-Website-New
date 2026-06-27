@@ -85,17 +85,21 @@
     </div>
 
     <nav class="flex justify-between items-center px-6 md:px-10 py-6 border-b border-white/10 glass sticky top-0 z-50">
-        <a href="#top" class="text-xl md:text-2xl font-black tracking-[0.2em]">KIZUNA <span class="text-indigo-500 font-light text-sm uppercase tracking-normal">Software Solutions</span></a>
+        <a href="#top" class="text-xl md:text-2xl font-black tracking-[0.2em]">KIZUNA <span id="t-brand-sub" style="color:#818cf8; font-weight:700; letter-spacing:0.3em; font-size:0.65rem;" class="uppercase">Software Solutions</span></a>
         <div class="hidden lg:flex gap-8 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-            <a href="#cloud" class="nav-link hover:text-white transition">Cloud</a>
-            <a href="#ai" class="nav-link hover:text-white transition">AI & ML</a>
-            <a href="#robotics" class="nav-link hover:text-white transition">Robotics</a>
-            <a href="#web" class="nav-link hover:text-white transition">Web</a>
-            <a href="#mobile" class="nav-link hover:text-white transition">Mobile</a>
-            <a href="#lab" class="nav-link hover:text-white transition">Project Lab</a>
+            <a href="#cloud" class="nav-link hover:text-white transition"><span id="t-nav-cloud">Cloud</span></a>
+            <a href="#ai" class="nav-link hover:text-white transition"><span id="t-nav-ai">AI & ML</span></a>
+            <a href="#robotics" class="nav-link hover:text-white transition"><span id="t-nav-robotics">Robotics</span></a>
+            <a href="#web" class="nav-link hover:text-white transition"><span id="t-nav-web">Web</span></a>
+            <a href="#mobile" class="nav-link hover:text-white transition"><span id="t-nav-mobile">Mobile</span></a>
+            <a href="#lab" class="nav-link hover:text-white transition"><span id="t-nav-lab">Project Lab</span></a>
         </div>
         <div class="flex items-center gap-3">
-            <button onclick="openContactModal()" class="bg-indigo-600 hover:bg-indigo-500 px-6 py-2 rounded-full text-xs font-bold transition-all">Contact Expert</button>
+            <!-- Language switcher -->
+            <div class="flex items-center bg-slate-800/60 border border-white/10 rounded-full p-1 text-xs font-black uppercase tracking-widest">
+                <button id="lang-en" onclick="setLang('en')" class="px-4 py-2 rounded-full transition-all bg-indigo-600 text-white">ENG</button>
+                <button id="lang-ja" onclick="setLang('ja')" class="px-4 py-2 rounded-full transition-all text-slate-400 hover:text-white">日本語</button>
+            </div>
             <button id="menu-toggle" onclick="toggleMobileMenu()" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden text-slate-300 hover:text-white p-2">
                 <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -104,22 +108,22 @@
     </nav>
 
     <div id="mobile-menu" class="lg:hidden flex-col gap-1 px-6 py-4 border-b border-white/10 glass sticky top-[84px] z-40">
-        <a href="#cloud" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest">Cloud</a>
-        <a href="#ai" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest">AI & ML</a>
-        <a href="#robotics" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest">Robotics</a>
-        <a href="#web" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest">Web</a>
-        <a href="#mobile" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest">Mobile</a>
-        <a href="#lab" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest">Project Lab</a>
+        <a href="#cloud" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest"><span id="t-mnav-cloud">Cloud</span></a>
+        <a href="#ai" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest"><span id="t-mnav-ai">AI & ML</span></a>
+        <a href="#robotics" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest"><span id="t-mnav-robotics">Robotics</span></a>
+        <a href="#web" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest"><span id="t-mnav-web">Web</span></a>
+        <a href="#mobile" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest"><span id="t-mnav-mobile">Mobile</span></a>
+        <a href="#lab" onclick="closeMobileMenu()" class="py-3 text-xs font-bold text-slate-300 hover:text-white uppercase tracking-widest"><span id="t-mnav-lab">Project Lab</span></a>
     </div>
 
     <section id="top" class="relative pt-24 pb-20 text-center">
         <div class="max-w-7xl mx-auto px-6">
-            <span class="px-4 py-1.5 rounded-full border border-indigo-500/30 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.3em] bg-indigo-500/5">Kizuna Software Solutions • 2026</span>
-            <h1 class="mt-8 text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] bg-gradient-to-b from-white to-slate-500 bg-clip-text text-transparent">Engineered for <br/> Absolute Scale.</h1>
-            <p class="mt-8 text-slate-400 text-lg max-w-2xl mx-auto font-light tracking-wide">Architecting the digital backbone for the world's most ambitious enterprises.</p>
+            <span class="px-4 py-1.5 rounded-full border border-indigo-500/30 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.3em] bg-indigo-500/5"><span id="t-hero-badge">Kizuna Software Solutions • 2026</span></span>
+            <h1 class="mt-8 text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] bg-gradient-to-b from-white to-slate-500 bg-clip-text text-transparent"><span id="t-hero-h1">Engineered for <br/> Absolute Scale.</span></h1>
+            <p class="mt-8 text-slate-400 text-lg max-w-2xl mx-auto font-light tracking-wide"><span id="t-hero-p">Architecting the digital backbone for the world's most ambitious enterprises.</span></p>
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onclick="openContactModal()" class="bg-indigo-600 hover:bg-indigo-500 px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-xl shadow-indigo-500/20">Start a Project</button>
-                <a href="#cloud" class="text-slate-400 hover:text-white text-xs font-bold uppercase tracking-widest transition flex items-center gap-2">Explore Services <span aria-hidden="true">↓</span></a>
+                <button onclick="openContactModal()" class="bg-indigo-600 hover:bg-indigo-500 px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-xl shadow-indigo-500/20"><span id="t-hero-cta">Start a Project</span></button>
+                <a href="#cloud" class="text-slate-400 hover:text-white text-xs font-bold uppercase tracking-widest transition flex items-center gap-2"><span id="t-hero-explore">Explore Services ↓</span></a></a>
             </div>
         </div>
     </section>
@@ -127,16 +131,16 @@
     <div class="bg-grid">
         <div class="max-w-7xl mx-auto px-6 space-y-16 pb-12 pt-10">
             <section id="cloud" class="space-y-6 pt-12">
-                <span class="text-indigo-500 font-mono text-xs tracking-widest uppercase block ml-2">01. Cloud Infrastructure</span>
+                <span class="text-indigo-500 font-mono text-xs tracking-widest uppercase block ml-2" id="t-cloud-label">01. Cloud Infrastructure</span>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="md:col-span-2 p-10 md:p-14 rounded-[2.5rem] bg-slate-900/60 border border-white/5 bento-card">
-                        <h3 class="text-4xl font-bold">Cloud Services</h3>
-                        <p class="text-slate-400 mt-4 text-lg">Deploy and manage robust cloud infrastructure with customized on-premises solutions integrated with AI engines.</p>
+                        <h3 class="text-4xl font-bold" id="t-cloud-h3">Cloud Services</h3>
+                        <p class="text-slate-400 mt-4 text-lg" id="t-cloud-p">Deploy and manage robust cloud infrastructure with customized on-premises solutions integrated with AI engines.</p>
                         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-semibold text-slate-300">
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_#6366f1]"></div> Cloud Architecture Design</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_#6366f1]"></div> On-premises Cloud Deployment</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_#6366f1]"></div> AI Engine Integration</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_#6366f1]"></div> Cloud Migration Services</div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_#6366f1]"></div> <span id="t-cloud-f1">Cloud Architecture Design</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_#6366f1]"></div> <span id="t-cloud-f2">On-premises Cloud Deployment</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_#6366f1]"></div> <span id="t-cloud-f3">AI Engine Integration</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-indigo-500 rounded-full shadow-[0_0_8px_#6366f1]"></div> <span id="t-cloud-f4">Cloud Migration Services</span></div>
                         </div>
                     </div>
                     <div class="hidden md:flex flex-col justify-center items-center p-8 rounded-[2.5rem] bg-indigo-600/5 border border-indigo-500/10">
@@ -146,35 +150,35 @@
             </section>
 
             <section id="ai" class="space-y-6 pt-12">
-                <span class="text-pink-500 font-mono text-xs tracking-widest uppercase block ml-2">02. Intelligence Systems</span>
+                <span class="text-pink-500 font-mono text-xs tracking-widest uppercase block ml-2" id="t-ai-label">02. Intelligence Systems</span>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="hidden md:flex flex-col justify-center items-center p-8 rounded-[2.5rem] bg-pink-600/5 border border-pink-500/10">
                         <svg class="w-12 h-12 text-pink-500/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
                     <div class="md:col-span-2 p-10 md:p-14 rounded-[2.5rem] bg-slate-900/60 border border-white/5 bento-card">
-                        <h3 class="text-4xl font-bold">AI & Machine Learning</h3>
-                        <p class="text-slate-400 mt-4 text-lg">Deploying state-of-the-art DL and Generative models to solve industrial challenges.</p>
+                        <h3 class="text-4xl font-bold" id="t-ai-h3">AI & Machine Learning</h3>
+                        <p class="text-slate-400 mt-4 text-lg" id="t-ai-p">Deploying state-of-the-art DL and Generative models to solve industrial challenges.</p>
                         <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
-                            <div><h4 class="text-pink-500 text-xs font-black uppercase tracking-widest mb-1">Agentic AI</h4><p class="text-slate-300 text-sm">Autonomous Agent Workflows</p></div>
-                            <div><h4 class="text-pink-500 text-xs font-black uppercase tracking-widest mb-1">YOLOv5 / OpenCV</h4><p class="text-slate-300 text-sm">Advanced Computer Vision</p></div>
-                            <div><h4 class="text-pink-500 text-xs font-black uppercase tracking-widest mb-1">PyTorch & TensorFlow</h4><p class="text-slate-300 text-sm">Deep Learning Pipelines</p></div>
-                            <div><h4 class="text-pink-500 text-xs font-black uppercase tracking-widest mb-1">Generative AI</h4><p class="text-slate-300 text-sm">Custom LLM Fine-tuning</p></div>
+                            <div><h4 class="text-pink-500 text-xs font-black uppercase tracking-widest mb-1" id="t-ai-f1-h">Agentic AI</h4><p class="text-slate-300 text-sm" id="t-ai-f1-p">Autonomous Agent Workflows</p></div>
+                            <div><h4 class="text-pink-500 text-xs font-black uppercase tracking-widest mb-1" id="t-ai-f2-h">YOLOv5 / OpenCV</h4><p class="text-slate-300 text-sm" id="t-ai-f2-p">Advanced Computer Vision</p></div>
+                            <div><h4 class="text-pink-500 text-xs font-black uppercase tracking-widest mb-1" id="t-ai-f3-h">PyTorch & TensorFlow</h4><p class="text-slate-300 text-sm" id="t-ai-f3-p">Deep Learning Pipelines</p></div>
+                            <div><h4 class="text-pink-500 text-xs font-black uppercase tracking-widest mb-1" id="t-ai-f4-h">Generative AI</h4><p class="text-slate-300 text-sm" id="t-ai-f4-p">Custom LLM Fine-tuning</p></div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="robotics" class="space-y-6 pt-12">
-                <span class="text-emerald-500 font-mono text-xs tracking-widest uppercase block ml-2">03. Robotics & Systems</span>
+                <span class="text-emerald-500 font-mono text-xs tracking-widest uppercase block ml-2" id="t-robotics-label">03. Robotics & Systems</span>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="md:col-span-2 p-10 md:p-14 rounded-[2.5rem] bg-slate-900/60 border border-white/5 bento-card">
-                        <h3 class="text-4xl font-bold">Robot Operating System</h3>
-                        <p class="text-slate-400 mt-4 text-lg">Building the software layer for hardware: ROS, SLAM, and high-performance C++ systems.</p>
+                        <h3 class="text-4xl font-bold" id="t-robotics-h3">Robot Operating System</h3>
+                        <p class="text-slate-400 mt-4 text-lg" id="t-robotics-p">Building the software layer for hardware: ROS, SLAM, and high-performance C++ systems.</p>
                         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-semibold text-slate-300">
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> SLAM Navigation</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> Embedded Systems (C++)</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> ROS 1 / ROS 2 Development</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> Computer Systems Architecture</div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> <span id="t-robotics-f1">SLAM Navigation</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> <span id="t-robotics-f2">Embedded Systems (C++)</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> <span id="t-robotics-f3">ROS 1 / ROS 2 Development</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full shadow-[0_0_8px_#10b981]"></div> <span id="t-robotics-f4">Computer Systems Architecture</span></div>
                         </div>
                     </div>
                     <div class="hidden md:flex flex-col justify-center items-center p-8 rounded-[2.5rem] bg-emerald-600/5 border border-emerald-500/10">
@@ -184,35 +188,35 @@
             </section>
 
             <section id="web" class="space-y-6 pt-12">
-                <span class="text-cyan-500 font-mono text-xs tracking-widest uppercase block ml-2">04. Digital Interfaces</span>
+                <span class="text-cyan-500 font-mono text-xs tracking-widest uppercase block ml-2" id="t-web-label">04. Digital Interfaces</span>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="hidden md:flex flex-col justify-center items-center p-8 rounded-[2.5rem] bg-cyan-600/5 border border-cyan-500/10">
                         <svg class="w-12 h-12 text-cyan-500/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9"></path></svg>
                     </div>
                     <div class="md:col-span-2 p-10 md:p-14 rounded-[2.5rem] bg-slate-900/60 border border-white/5 bento-card">
-                        <h3 class="text-4xl font-bold">Web Applications</h3>
-                        <p class="text-slate-400 mt-4 text-lg">Build powerful, scalable web applications tailored to your business requirements using modern frameworks.</p>
+                        <h3 class="text-4xl font-bold" id="t-web-h3">Web Applications</h3>
+                        <p class="text-slate-400 mt-4 text-lg" id="t-web-p">Build powerful, scalable web applications tailored to your business requirements using modern frameworks.</p>
                         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-semibold text-slate-300">
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_#06b6d4]"></div> Custom React/Next.js dev</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_#06b6d4]"></div> Progressive Web Apps (PWA)</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_#06b6d4]"></div> Enterprise web portals</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_#06b6d4]"></div> Real-time streaming apps</div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_#06b6d4]"></div> <span id="t-web-f1">Custom React/Next.js dev</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_#06b6d4]"></div> <span id="t-web-f2">Progressive Web Apps (PWA)</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_#06b6d4]"></div> <span id="t-web-f3">Enterprise web portals</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_8px_#06b6d4]"></div> <span id="t-web-f4">Real-time streaming apps</span></div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="mobile" class="space-y-6 pt-12">
-                <span class="text-violet-500 font-mono text-xs tracking-widest uppercase block ml-2">05. Ecosystem</span>
+                <span class="text-violet-500 font-mono text-xs tracking-widest uppercase block ml-2" id="t-mobile-label">05. Ecosystem</span>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="md:col-span-2 p-10 md:p-14 rounded-[2.5rem] bg-slate-900/60 border border-white/5 bento-card">
-                        <h3 class="text-4xl font-bold">Mobile Apps</h3>
-                        <p class="text-slate-400 mt-4 text-lg">Create stunning native and cross-platform mobile applications for Android and iOS with seamless UX.</p>
+                        <h3 class="text-4xl font-bold" id="t-mobile-h3">Mobile Apps</h3>
+                        <p class="text-slate-400 mt-4 text-lg" id="t-mobile-p">Create stunning native and cross-platform mobile applications for Android and iOS with seamless UX.</p>
                         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-semibold text-slate-300">
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_8px_#8b5cf6]"></div> Native Swift & Kotlin</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_8px_#8b5cf6]"></div> Flutter / React Native</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_8px_#8b5cf6]"></div> Offline-first capability</div>
-                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_8px_#8b5cf6]"></div> Global store deployment</div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_8px_#8b5cf6]"></div> <span id="t-mobile-f1">Native Swift & Kotlin</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_8px_#8b5cf6]"></div> <span id="t-mobile-f2">Flutter / React Native</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_8px_#8b5cf6]"></div> <span id="t-mobile-f3">Offline-first capability</span></div>
+                            <div class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-violet-500 rounded-full shadow-[0_0_8px_#8b5cf6]"></div> <span id="t-mobile-f4">Global store deployment</span></div>
                         </div>
                     </div>
                     <div class="hidden md:flex flex-col justify-center items-center p-8 rounded-[2.5rem] bg-violet-600/5 border border-violet-500/10">
@@ -223,8 +227,8 @@
         </div>
 
         <section class="mt-24 pt-12 text-center">
-            <h2 class="text-5xl md:text-6xl font-black tracking-tighter">Technical Arsenal</h2>
-            <p class="text-indigo-400 font-mono text-[10px] tracking-[0.4em] uppercase mt-4">The Stack That Scales.</p>
+            <h2 class="text-5xl md:text-6xl font-black tracking-tighter" id="t-tech-h2">Technical Arsenal</h2>
+            <p class="text-indigo-400 font-mono text-[10px] tracking-[0.4em] uppercase mt-4" id="t-tech-p">The Stack That Scales.</p>
         </section>
 
         <section class="py-24 border-y border-white/5 bg-slate-900/10 overflow-hidden">
@@ -265,61 +269,61 @@
         </section>
 
         <section id="lab" class="max-w-7xl mx-auto px-6 py-24">
-            <h2 class="text-indigo-400 font-mono text-[10px] tracking-[0.4em] uppercase mb-8 text-center">Project Lab</h2>
+            <h2 class="text-indigo-400 font-mono text-[10px] tracking-[0.4em] uppercase mb-8 text-center" id="t-lab-label">Project Lab</h2>
 
             <div class="mb-8 p-10 md:p-14 rounded-[2.5rem] bg-slate-900/60 border border-white/5 bento-card">
                 <div class="flex flex-wrap items-center gap-3 mb-6">
-                    <span class="px-4 py-1.5 rounded-full border border-indigo-500/30 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.3em] bg-indigo-500/5">📄 The Project Lab Case Study</span>
-                    <span class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.3em]">R&amp;D / Operational Innovation</span>
+                    <span class="px-4 py-1.5 rounded-full border border-indigo-500/30 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.3em] bg-indigo-500/5"><span id="t-lab-badge">📄 The Project Lab Case Study</span></span>
+                    <span class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.3em]"><span id="t-lab-meta">R&amp;D / Operational Innovation</span></span>
                 </div>
-                <h3 class="text-3xl md:text-4xl font-bold tracking-tight">Project Accelerate: AI Driven Development</h3>
+                <h3 class="text-3xl md:text-4xl font-bold tracking-tight"><span id="t-lab-h3">Project Accelerate: AI Driven Development</span></h3>
 
                 <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
                     <div>
-                        <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-3">The Hypothesis</h4>
-                        <p class="text-slate-400 text-base leading-relaxed">Traditional software development cycles spend up to 50% of their timelines on boilerplate code, repetitive CRUD operations, and manual environment setups. We hypothesized that by building a specialized pipeline using secure, fine-tuned AI development models, we could automate these baseline tasks&mdash;freeing our engineers to focus 100% of their cognitive energy on complex architecture, custom business logic, and security.</p>
+                        <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-3"><span id="t-lab-hyp-h">The Hypothesis</span></h4>
+                        <p class="text-slate-400 text-base leading-relaxed" id="t-lab-hyp-p">Traditional software development cycles spend up to 50% of their timelines on boilerplate code, repetitive CRUD operations, and manual environment setups. We hypothesized that by building a specialized pipeline using secure, fine-tuned AI development models, we could automate these baseline tasks&mdash;freeing our engineers to focus 100% of their cognitive energy on complex architecture, custom business logic, and security.</p>
                     </div>
                     <div>
-                        <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-3">The Implementation</h4>
-                        <p class="text-slate-400 text-base leading-relaxed mb-5">We engineered an internal AI driven workflow within Kizuna. When a new project kicks off:</p>
+                        <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-3"><span id="t-lab-impl-h">The Implementation</span></h4>
+                        <p class="text-slate-400 text-base leading-relaxed mb-5"><span id="t-lab-impl-p">We engineered an internal AI driven workflow within Kizuna. When a new project kicks off:</span></p>
                         <ol class="space-y-4">
                             <li class="flex gap-4">
                                 <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-black flex items-center justify-center">01</span>
-                                <span class="text-slate-300 text-sm leading-relaxed pt-1"><span class="font-bold text-white">AI Synthesis:</span> Custom AI tools instantly scaffold the database schemas, generate initial API endpoints, and establish robust test coverage based on the product requirements.</span>
+                                <span class="text-slate-300 text-sm leading-relaxed pt-1"><span class="font-bold text-white"><span id="t-lab-step1-h">AI Synthesis:</span></span> <span id="t-lab-step1-p">Custom AI tools instantly scaffold the database schemas, generate initial API endpoints, and establish robust test coverage based on the product requirements.</span></span>
                             </li>
                             <li class="flex gap-4">
                                 <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-black flex items-center justify-center">02</span>
-                                <span class="text-slate-300 text-sm leading-relaxed pt-1"><span class="font-bold text-white">Human Engineering:</span> Our senior software engineers step in immediately as architects and code editors. They review, optimize, secure, and integrate the code to enterprise-ready standards.</span>
+                                <span class="text-slate-300 text-sm leading-relaxed pt-1"><span class="font-bold text-white"><span id="t-lab-step2-h">Human Engineering:</span></span> <span id="t-lab-step2-p">Our senior software engineers step in immediately as architects and code editors. They review, optimize, secure, and integrate the code to enterprise-ready standards.</span></span>
                             </li>
                         </ol>
                     </div>
                 </div>
 
                 <div class="mt-10 pt-10 border-t border-white/5">
-                    <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-6">The Results (Lab Benchmarks)</h4>
+                    <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-6"><span id="t-lab-res-h">The Results (Lab Benchmarks)</span></h4>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <div class="p-6 rounded-[1.75rem] bg-slate-950/40 border border-white/5">
-                            <div class="text-3xl md:text-4xl font-black">35&ndash;40%</div>
-                            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-3">Time-to-Market</div>
-                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">Compressed product delivery timelines.</p>
+                            <div class="text-3xl md:text-4xl font-black" id="t-lab-res1-stat">35&ndash;40%</div>
+                            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-3" id="t-lab-res1-label">Time-to-Market</div>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed" id="t-lab-res1-p">Compressed product delivery timelines.</p>
                         </div>
                         <div class="p-6 rounded-[1.75rem] bg-slate-950/40 border border-white/5">
-                            <div class="text-3xl md:text-4xl font-black">25%</div>
-                            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-3">Error Reduction</div>
-                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">Drop in initial QA bugs via automated edge-case test generation.</p>
+                            <div class="text-3xl md:text-4xl font-black" id="t-lab-res2-stat">25%</div>
+                            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-3" id="t-lab-res2-label">Error Reduction</div>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed" id="t-lab-res2-p">Drop in initial QA bugs via automated edge-case test generation.</p>
                         </div>
                         <div class="p-6 rounded-[1.75rem] bg-slate-950/40 border border-white/5">
-                            <div class="text-3xl md:text-4xl font-black">Optimized</div>
-                            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-3">Cost Efficiency</div>
-                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">Drastically reduced manual developer hours, delivering premium, scalable software at a highly competitive budget.</p>
+                            <div class="text-3xl md:text-4xl font-black" id="t-lab-res3-stat">Optimized</div>
+                            <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-3" id="t-lab-res3-label">Cost Efficiency</div>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed" id="t-lab-res3-p">Drastically reduced manual developer hours, delivering premium, scalable software at a highly competitive budget.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-10 pt-10 border-t border-white/5">
-                    <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-6">SDLC Automation Pipeline</h4>
+                    <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-6" id="t-lab-sdlc-h">SDLC Automation Pipeline</h4>
                     <div class="rounded-[1.75rem] bg-slate-950/40 border border-white/5 p-6 overflow-hidden">
-                        <svg width="100%" viewBox="0 0 680 490" role="img">
+                        <svg width="100%" viewBox="0 0 720 490" role="img">
                             <title>SDLC automation pipeline</title>
                             <desc>AI-driven software development lifecycle from requirements through deployment, with human review checkpoints at architecture and code review stages.</desc>
                             <defs>
@@ -328,83 +332,83 @@
                                 </marker>
                             </defs>
                             <!-- Lane backgrounds -->
-                            <rect x="30" y="40" width="620" height="80" rx="8" fill="rgba(99,102,241,0.07)"/>
-                            <rect x="30" y="132" width="620" height="80" rx="8" fill="rgba(16,185,129,0.06)"/>
-                            <rect x="30" y="224" width="620" height="80" rx="8" fill="rgba(99,102,241,0.07)"/>
+                            <rect x="30" y="40" width="660" height="80" rx="8" fill="rgba(99,102,241,0.07)"/>
+                            <rect x="30" y="132" width="660" height="80" rx="8" fill="rgba(16,185,129,0.06)"/>
+                            <rect x="30" y="224" width="660" height="80" rx="8" fill="rgba(99,102,241,0.07)"/>
                             <!-- Lane labels -->
-                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(99,102,241,0.7)" x="42" y="85" dominant-baseline="central">AI</text>
-                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(16,185,129,0.7)" x="42" y="177" dominant-baseline="central">HUMAN</text>
-                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(99,102,241,0.7)" x="42" y="269" dominant-baseline="central">AI</text>
+                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(99,102,241,0.7)" x="42" y="85" dominant-baseline="central" id="t-svg-ai1">AI</text>
+                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(16,185,129,0.7)" x="42" y="177" dominant-baseline="central" id="t-svg-human">HUMAN</text>
+                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(99,102,241,0.7)" x="42" y="269" dominant-baseline="central" id="t-svg-ai2">AI</text>
                             <!-- Dividers -->
-                            <line x1="30" y1="128" x2="650" y2="128" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                            <line x1="30" y1="220" x2="650" y2="220" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                            <line x1="30" y1="312" x2="650" y2="312" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                            <line x1="30" y1="128" x2="690" y2="128" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                            <line x1="30" y1="220" x2="690" y2="220" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                            <line x1="30" y1="312" x2="690" y2="312" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
                             <!-- Step 1: Requirements -->
                             <rect x="74" y="52" width="116" height="56" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="132" y="74">Requirements</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="132" y="93">AI parsing &amp; scoping</text>
+                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="132" y="74" id="t-svg-req">Requirements</text>
+                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="132" y="93" id="t-svg-req-sub">AI parsing &amp; scoping</text>
                             <!-- 1 → Code gen (horizontal) -->
                             <path d="M190 80 L218 80" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
                             <!-- 1 → Architecture (diagonal down) -->
                             <path d="M190 85 L205 85 L205 172 L218 172" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
                             <!-- Step 2: Architecture (human lane) -->
                             <rect x="218" y="144" width="116" height="56" rx="8" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(110,231,183,1)" text-anchor="middle" dominant-baseline="central" x="276" y="166">Architecture</text>
-                            <text font-size="11" fill="rgba(16,185,129,0.7)" text-anchor="middle" dominant-baseline="central" x="276" y="185">Human design review</text>
+                            <text font-size="13" font-weight="600" fill="rgba(110,231,183,1)" text-anchor="middle" dominant-baseline="central" x="276" y="166" id="t-svg-arch">Architecture</text>
+                            <text font-size="11" fill="rgba(16,185,129,0.7)" text-anchor="middle" dominant-baseline="central" x="276" y="185" id="t-svg-arch-sub">Human design review</text>
                             <!-- Architecture → Code gen (up) -->
                             <path d="M276 144 L276 108" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
                             <!-- Step 3: Code gen (AI lane) -->
                             <rect x="218" y="52" width="116" height="56" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="276" y="74">Code generation</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="276" y="93">Scaffold, APIs, schemas</text>
+                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="276" y="74" id="t-svg-codegen">Code generation</text>
+                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="276" y="93" id="t-svg-codegen-sub">Scaffold, APIs, schemas</text>
                             <!-- Code gen → Testing -->
                             <path d="M334 80 L362 80" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
                             <!-- Step 4: Testing (AI lane) -->
                             <rect x="362" y="52" width="116" height="56" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="420" y="74">Testing</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="420" y="93">Auto test coverage</text>
+                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="420" y="74" id="t-svg-testing">Testing</text>
+                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="420" y="93" id="t-svg-testing-sub">Auto test coverage</text>
                             <!-- Testing ↔ Code review -->
                             <path d="M420 108 L420 144" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
                             <path d="M410 144 L410 108" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#sdlc-arrow)"/>
                             <!-- Step 5: Code review (human lane) -->
                             <rect x="362" y="144" width="116" height="56" rx="8" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(110,231,183,1)" text-anchor="middle" dominant-baseline="central" x="420" y="166">Code review</text>
-                            <text font-size="11" fill="rgba(16,185,129,0.7)" text-anchor="middle" dominant-baseline="central" x="420" y="185">Optimize &amp; secure</text>
+                            <text font-size="13" font-weight="600" fill="rgba(110,231,183,1)" text-anchor="middle" dominant-baseline="central" x="420" y="166" id="t-svg-review">Code review</text>
+                            <text font-size="11" fill="rgba(16,185,129,0.7)" text-anchor="middle" dominant-baseline="central" x="420" y="185" id="t-svg-review-sub">Optimize &amp; secure</text>
                             <!-- Code review → Deployment -->
                             <path d="M478 172 L491 172 L491 80 L506 80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
                             <!-- Testing → Deployment -->
                             <path d="M478 80 L506 80" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
                             <!-- Step 6: Deployment (AI lane) -->
                             <rect x="506" y="52" width="116" height="56" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="564" y="74">Deployment</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="564" y="93">CI/CD &amp; monitoring</text>
+                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="564" y="74" id="t-svg-deploy">Deployment</text>
+                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="564" y="93" id="t-svg-deploy-sub">CI/CD &amp; monitoring</text>
                             <!-- Deployment → Feedback (down + left) -->
-                            <path d="M564 108 L564 350 L497 350 L497 300 L478 300" fill="none" stroke="rgba(165,163,255,0.3)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#sdlc-arrow)"/>
+                            <path d="M564 108 L564 350 L430 350 L430 268 L418 268" fill="none" stroke="rgba(165,163,255,0.3)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#sdlc-arrow)"/>
                             <!-- Step 7: Feedback loop (AI lane, bottom) -->
-                            <rect x="362" y="240" width="116" height="56" rx="8" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.3)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,0.9)" text-anchor="middle" dominant-baseline="central" x="420" y="262">Feedback loop</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.6)" text-anchor="middle" dominant-baseline="central" x="420" y="281">Learn &amp; optimise</text>
+                            <rect x="302" y="240" width="116" height="56" rx="8" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.3)" stroke-width="0.5"/>
+                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,0.9)" text-anchor="middle" dominant-baseline="central" x="360" y="262" id="t-svg-feedback">Feedback loop</text>
+                            <text font-size="11" fill="rgba(99,102,241,0.6)" text-anchor="middle" dominant-baseline="central" x="360" y="281" id="t-svg-feedback-sub">Learn &amp; optimise</text>
                             <!-- Feedback → Requirements (cycle back) -->
-                            <path d="M362 268 L132 268 L132 108" fill="none" stroke="rgba(165,163,255,0.25)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#sdlc-arrow)"/>
+                            <path d="M302 268 L132 268 L132 108" fill="none" stroke="rgba(165,163,255,0.25)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#sdlc-arrow)"/>
                             <!-- Legend -->
-                            <rect x="74" y="360" width="12" height="12" rx="3" fill="rgba(99,102,241,0.6)"/>
-                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="92" y="370" dominant-baseline="central">AI automated</text>
-                            <rect x="200" y="360" width="12" height="12" rx="3" fill="rgba(16,185,129,0.6)"/>
-                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="218" y="370" dominant-baseline="central">Human checkpoint</text>
-                            <line x1="360" y1="366" x2="390" y2="366" stroke="rgba(165,163,255,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
-                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="398" y="366" dominant-baseline="central">Feedback / iteration</text>
+                            <rect x="74" y="364" width="12" height="12" rx="3" fill="rgba(99,102,241,0.6)"/>
+                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="92" y="370" dominant-baseline="central" id="t-svg-legend-ai">AI automated</text>
+                            <rect x="294" y="364" width="12" height="12" rx="3" fill="rgba(16,185,129,0.6)"/>
+                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="312" y="370" dominant-baseline="central" id="t-svg-legend-human">Human checkpoint</text>
+                            <line x1="514" y1="370" x2="544" y2="370" stroke="rgba(165,163,255,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="552" y="370" dominant-baseline="central" id="t-svg-legend-feedback">Feedback / iteration</text>
                             <!-- Callout bar -->
-                            <rect x="74" y="392" width="532" height="48" rx="8" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.2)" stroke-width="0.5"/>
-                            <text font-size="12" font-weight="600" fill="rgba(165,163,255,0.9)" text-anchor="middle" dominant-baseline="central" x="340" y="411">35–40% faster · 25% fewer bugs · engineers focused on architecture &amp; security</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.6)" text-anchor="middle" dominant-baseline="central" x="340" y="429">Boilerplate, scaffolding, test generation &amp; CI/CD handled autonomously</text>
+                            <rect x="74" y="392" width="572" height="48" rx="8" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.2)" stroke-width="0.5"/>
+                            <text font-size="12" font-weight="600" fill="rgba(165,163,255,0.9)" text-anchor="middle" dominant-baseline="central" x="360" y="411" id="t-svg-callout1">35–40% faster · 25% fewer bugs · engineers focused on architecture &amp; security</text>
+                            <text font-size="11" fill="rgba(99,102,241,0.6)" text-anchor="middle" dominant-baseline="central" x="360" y="429" id="t-svg-callout2">Boilerplate, scaffolding, test generation &amp; CI/CD handled autonomously</text>
                         </svg>
                     </div>
                 </div>
 
                 <div class="mt-10 pt-10 border-t border-white/5">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
-                        <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest">Coding Agents in Our Pipeline</h4>
-                        <span class="text-slate-600 text-[10px] font-mono uppercase tracking-widest">6 tools · AI driven stack</span>
+                        <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest"><span id="t-lab-agents-h">Coding Agents in Our Pipeline</span></h4>
+                        <span class="text-slate-600 text-[10px] font-mono uppercase tracking-widest"><span id="t-lab-agents-meta">6 tools · AI driven stack</span></span>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
@@ -484,35 +488,33 @@
                 <!-- Brand -->
                 <div>
                     <div class="text-xl font-black tracking-[0.2em]">KIZUNA <span class="text-indigo-500 font-light text-base tracking-normal">Software Solutions</span></div>
-                    <p class="text-slate-500 text-sm mt-4 leading-relaxed">Architecting the digital backbone for<br>the world's most ambitious enterprises.</p>
+                    <p class="text-slate-500 text-sm mt-4 leading-relaxed"><span id="t-footer-tagline">Architecting the digital backbone for<br>the world's most ambitious enterprises.</span></p>
                 </div>
 
                 <!-- Services -->
                 <div>
-                    <div class="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400 mb-5">Services</div>
+                    <div class="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400 mb-5" id="t-footer-svc-h">Services</div>
                     <div class="space-y-3">
-                        <a href="#cloud" class="block text-slate-400 hover:text-white text-sm transition-colors">Cloud Infrastructure</a>
-                        <a href="#ai" class="block text-slate-400 hover:text-white text-sm transition-colors">AI &amp; Machine Learning</a>
-                        <a href="#robotics" class="block text-slate-400 hover:text-white text-sm transition-colors">Robotics &amp; Systems</a>
-                        <a href="#web" class="block text-slate-400 hover:text-white text-sm transition-colors">Web Applications</a>
-                        <a href="#mobile" class="block text-slate-400 hover:text-white text-sm transition-colors">Mobile Apps</a>
+                        <a href="#cloud" class="block text-slate-400 hover:text-white text-sm transition-colors"><span id="t-footer-svc1">Cloud Infrastructure</span></a>
+                        <a href="#ai" class="block text-slate-400 hover:text-white text-sm transition-colors"><span id="t-footer-svc2">AI &amp; Machine Learning</span></a>
+                        <a href="#robotics" class="block text-slate-400 hover:text-white text-sm transition-colors"><span id="t-footer-svc3">Robotics &amp; Systems</span></a>
+                        <a href="#web" class="block text-slate-400 hover:text-white text-sm transition-colors"><span id="t-footer-svc4">Web Applications</span></a>
+                        <a href="#mobile" class="block text-slate-400 hover:text-white text-sm transition-colors"><span id="t-footer-svc5">Mobile Apps</span></a>
                     </div>
                 </div>
 
                 <!-- CTA -->
                 <div>
-                    <div class="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400 mb-5">Start a Project</div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Ready to build something exceptional? Our engineers are standing by.</p>
-                    <button onclick="openContactModal()" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest transition-all shadow-lg shadow-indigo-500/20">
-                        Contact an Engineer <span aria-hidden="true">→</span>
-                    </button>
+                    <div class="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400 mb-5" id="t-footer-cta-h">Start a Project</div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6" id="t-footer-cta-p">Ready to build something exceptional? Our engineers are standing by.</p>
+                    <button onclick="openContactModal()" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest transition-all shadow-lg shadow-indigo-500/20"><span id="t-footer-cta-btn">Contact an Engineer →</span></button>
                 </div>
 
             </div>
 
             <!-- Bottom bar -->
             <div class="pt-6 flex items-center justify-center">
-                <span class="text-slate-600 text-[10px] font-mono tracking-[0.4em] uppercase">Kizuna Software Solutions © 2026</span>
+                <span class="text-slate-600 text-[10px] font-mono tracking-[0.4em] uppercase" id="t-footer-copy">Kizuna Software Solutions © 2026</span>
             </div>
 
         </div>
@@ -626,6 +628,411 @@
         }, observerOptions);
 
         sections.forEach(section => observer.observe(section));
+    </script>
+
+    <script>
+        // ── Language switcher ──────────────────────────────────────────────
+        const translations = {
+            en: {
+                // Nav
+                'brand-sub':      'Software Solutions',
+                'nav-cloud':      'Cloud',
+                'nav-ai':         'AI & ML',
+                'nav-robotics':   'Robotics',
+                'nav-web':        'Web',
+                'nav-mobile':     'Mobile',
+                'nav-lab':        'Project Lab',
+                'nav-contact':    'Contact Expert',
+                // Hero
+                'hero-badge':     'Kizuna Software Solutions • 2026',
+                'hero-h1':        'Engineered for <br/> Absolute Scale.',
+                'hero-p':         'Architecting the digital backbone for the world\'s most ambitious enterprises.',
+                'hero-cta':       'Start a Project',
+                'hero-explore':   'Explore Services ↓',
+                // Cloud
+                'cloud-label':    '01. Cloud Infrastructure',
+                'cloud-h3':       'Cloud Services',
+                'cloud-p':        'Deploy and manage robust cloud infrastructure with customized on-premises solutions integrated with AI engines.',
+                'cloud-f1':       'Cloud Architecture Design',
+                'cloud-f2':       'On-premises Cloud Deployment',
+                'cloud-f3':       'AI Engine Integration',
+                'cloud-f4':       'Cloud Migration Services',
+                // AI
+                'ai-label':       '02. Intelligence Systems',
+                'ai-h3':          'AI & Machine Learning',
+                'ai-p':           'Deploying state-of-the-art DL and Generative models to solve industrial challenges.',
+                'ai-f1-h':        'Agentic AI',
+                'ai-f1-p':        'Autonomous Agent Workflows',
+                'ai-f2-h':        'YOLOv5 / OpenCV',
+                'ai-f2-p':        'Advanced Computer Vision',
+                'ai-f3-h':        'PyTorch & TensorFlow',
+                'ai-f3-p':        'Deep Learning Pipelines',
+                'ai-f4-h':        'Generative AI',
+                'ai-f4-p':        'Custom LLM Fine-tuning',
+                // Robotics
+                'robotics-label': '03. Robotics & Systems',
+                'robotics-h3':    'Robot Operating System',
+                'robotics-p':     'Building the software layer for hardware: ROS, SLAM, and high-performance C++ systems.',
+                'robotics-f1':    'SLAM Navigation',
+                'robotics-f2':    'Embedded Systems (C++)',
+                'robotics-f3':    'ROS 1 / ROS 2 Development',
+                'robotics-f4':    'Computer Systems Architecture',
+                // Web
+                'web-label':      '04. Digital Interfaces',
+                'web-h3':         'Web Applications',
+                'web-p':          'Build powerful, scalable web applications tailored to your business requirements using modern frameworks.',
+                'web-f1':         'Custom React/Next.js dev',
+                'web-f2':         'Progressive Web Apps (PWA)',
+                'web-f3':         'Enterprise web portals',
+                'web-f4':         'Real-time streaming apps',
+                // Mobile
+                'mobile-label':   '05. Ecosystem',
+                'mobile-h3':      'Mobile Apps',
+                'mobile-p':       'Create stunning native and cross-platform mobile applications for Android and iOS with seamless UX.',
+                'mobile-f1':      'Native Swift & Kotlin',
+                'mobile-f2':      'Flutter / React Native',
+                'mobile-f3':      'Offline-first capability',
+                'mobile-f4':      'Global store deployment',
+                // Tech Arsenal
+                'tech-h2':        'Technical Arsenal',
+                'tech-p':         'The Stack That Scales.',
+                // Project Lab
+                'lab-label':      'Project Lab',
+                'lab-badge':      '📄 The Project Lab Case Study',
+                'lab-meta':       'R&D / Operational Innovation',
+                'lab-h3':         'Project Accelerate: AI Driven Development',
+                'lab-hyp-h':      'The Hypothesis',
+                'lab-hyp-p':      'Traditional software development cycles spend up to 50% of their timelines on boilerplate code, repetitive CRUD operations, and manual environment setups. We hypothesized that by building a specialized pipeline using secure, fine-tuned AI development models, we could automate these baseline tasks—freeing our engineers to focus 100% of their cognitive energy on complex architecture, custom business logic, and security.',
+                'lab-impl-h':     'The Implementation',
+                'lab-impl-p':     'We engineered an internal AI driven workflow within Kizuna. When a new project kicks off:',
+                'lab-step1-h':    'AI Synthesis',
+                'lab-step1-p':    'Custom AI tools instantly scaffold the database schemas, generate initial API endpoints, and establish robust test coverage based on the product requirements.',
+                'lab-step2-h':    'Human Engineering',
+                'lab-step2-p':    'Our senior software engineers step in immediately as architects and code editors. They review, optimize, secure, and integrate the code to enterprise-ready standards.',
+                'lab-res-h':      'The Results (Lab Benchmarks)',
+                'lab-res1-stat':  '35–40%',
+                'lab-res1-label': 'Time-to-Market',
+                'lab-res1-p':     'Compressed product delivery timelines.',
+                'lab-res2-stat':  '25%',
+                'lab-res2-label': 'Error Reduction',
+                'lab-res2-p':     'Drop in initial QA bugs via automated edge-case test generation.',
+                'lab-res3-stat':  'Optimized',
+                'lab-res3-label': 'Cost Efficiency',
+                'lab-res3-p':     'Drastically reduced manual developer hours, delivering premium, scalable software at a highly competitive budget.',
+                'lab-sdlc-h':       'SDLC Automation Pipeline',
+                'svg-human':        'HUMAN',
+                'svg-req':          'Requirements',
+                'svg-req-sub':      'AI parsing & scoping',
+                'svg-arch':         'Architecture',
+                'svg-arch-sub':     'Human design review',
+                'svg-codegen':      'Code generation',
+                'svg-codegen-sub':  'Scaffold, APIs, schemas',
+                'svg-testing':      'Testing',
+                'svg-testing-sub':  'Auto test coverage',
+                'svg-review':       'Code review',
+                'svg-review-sub':   'Optimize & secure',
+                'svg-deploy':       'Deployment',
+                'svg-deploy-sub':   'CI/CD & monitoring',
+                'svg-feedback':     'Feedback loop',
+                'svg-feedback-sub': 'Learn & optimise',
+                'svg-legend-ai':    'AI automated',
+                'svg-legend-human': 'Human checkpoint',
+                'svg-legend-fb':    'Feedback / iteration',
+                'svg-callout1':     '35–40% faster · 25% fewer bugs · engineers focused on architecture & security',
+                'svg-callout2':     'Boilerplate, scaffolding, test generation & CI/CD handled autonomously',
+                'lab-agents-meta':'6 tools · AI driven stack',
+                // Modal
+                'modal-title':    'Contact an Expert',
+                'modal-sub':      'Tell us where to reach you and a Kizuna engineer will be in touch.',
+                'modal-email':    'Professional Email',
+                'modal-btn':      'Request a Conversation',
+                'modal-success':  'We\'ll be in touch shortly.',
+                // Footer
+                'footer-tagline': 'Architecting the digital backbone for<br>the world\'s most ambitious enterprises.',
+                'footer-svc-h':   'Services',
+                'footer-svc1':    'Cloud Infrastructure',
+                'footer-svc2':    'AI & Machine Learning',
+                'footer-svc3':    'Robotics & Systems',
+                'footer-svc4':    'Web Applications',
+                'footer-svc5':    'Mobile Apps',
+                'footer-cta-h':   'Start a Project',
+                'footer-cta-p':   'Ready to build something exceptional? Our engineers are standing by.',
+                'footer-cta-btn': 'Contact an Engineer →',
+                'footer-copy':    'Kizuna Software Solutions © 2026',
+            },
+            ja: {
+                'brand-sub':      'ソフトウェアソリューションズ',
+                'nav-cloud':      'クラウド',
+                'nav-ai':         'AI・ML',
+                'nav-robotics':   'ロボティクス',
+                'nav-web':        'ウェブ',
+                'nav-mobile':     'モバイル',
+                'nav-lab':        'プロジェクトラボ',
+                'nav-contact':    'お問い合わせ',
+                'hero-badge':     'Kizuna Software Solutions • 2026',
+                'hero-h1':        '絶対的スケールのために<br/>設計されたシステム。',
+                'hero-p':         '世界で最も野心的な企業のデジタル基盤を構築します。',
+                'hero-cta':       'プロジェクトを始める',
+                'hero-explore':   'サービスを見る ↓',
+                'cloud-label':    '01. クラウドインフラ',
+                'cloud-h3':       'クラウドサービス',
+                'cloud-p':        'AIエンジンと統合されたカスタムオンプレミスソリューションで、堅牢なクラウドインフラを導入・管理します。',
+                'cloud-f1':       'クラウドアーキテクチャ設計',
+                'cloud-f2':       'オンプレミスクラウド導入',
+                'cloud-f3':       'AIエンジン統合',
+                'cloud-f4':       'クラウド移行サービス',
+                'ai-label':       '02. インテリジェンスシステム',
+                'ai-h3':          'AI・機械学習',
+                'ai-p':           '最先端のディープラーニングおよび生成AIモデルを活用し、産業課題を解決します。',
+                'ai-f1-h':        'エージェント型AI',
+                'ai-f1-p':        '自律型エージェントワークフロー',
+                'ai-f2-h':        'YOLOv5 / OpenCV',
+                'ai-f2-p':        '高度なコンピュータビジョン',
+                'ai-f3-h':        'PyTorch & TensorFlow',
+                'ai-f3-p':        'ディープラーニングパイプライン',
+                'ai-f4-h':        '生成AI',
+                'ai-f4-p':        'カスタムLLMファインチューニング',
+                'robotics-label': '03. ロボティクス・システム',
+                'robotics-h3':    'ロボットオペレーティングシステム',
+                'robotics-p':     'ROS、SLAM、高性能C++システムによるハードウェア向けソフトウェアレイヤーを構築します。',
+                'robotics-f1':    'SLAMナビゲーション',
+                'robotics-f2':    '組み込みシステム（C++）',
+                'robotics-f3':    'ROS 1 / ROS 2 開発',
+                'robotics-f4':    'コンピュータシステムアーキテクチャ',
+                'web-label':      '04. デジタルインターフェース',
+                'web-h3':         'ウェブアプリケーション',
+                'web-p':          'モダンなフレームワークを使用し、ビジネス要件に合わせた強力でスケーラブルなウェブアプリを構築します。',
+                'web-f1':         'カスタム React/Next.js 開発',
+                'web-f2':         'プログレッシブウェブアプリ（PWA）',
+                'web-f3':         '企業向けウェブポータル',
+                'web-f4':         'リアルタイムストリーミングアプリ',
+                'mobile-label':   '05. エコシステム',
+                'mobile-h3':      'モバイルアプリ',
+                'mobile-p':       'AndroidおよびiOS向けのネイティブ・クロスプラットフォームモバイルアプリを開発します。',
+                'mobile-f1':      'Native Swift & Kotlin',
+                'mobile-f2':      'Flutter / React Native',
+                'mobile-f3':      'オフラインファースト対応',
+                'mobile-f4':      'グローバルストア配信',
+                'tech-h2':        '技術スタック',
+                'tech-p':         'スケールする技術基盤。',
+                'lab-label':      'プロジェクトラボ',
+                'lab-badge':      '📄 プロジェクトラボ 事例',
+                'lab-meta':       'R&D / 業務革新',
+                'lab-h3':         'プロジェクトAccelerate：AI駆動開発',
+                'lab-hyp-h':      '仮説',
+                'lab-hyp-p':      '従来のソフトウェア開発サイクルは、ボイラープレートコード、反復的なCRUD操作、手動環境構築に開発期間の最大50%を費やしています。セキュアなAI開発モデルを活用した特化型パイプラインを構築することで、こうした定型作業を自動化し、エンジニアが複雑なアーキテクチャ設計・独自ビジネスロジック・セキュリティに100%集中できると仮説を立てました。',
+                'lab-impl-h':     '実装',
+                'lab-impl-p':     'Kizuna社内でAI駆動ワークフローを構築しました。新規プロジェクト開始時：',
+                'lab-step1-h':    'AI合成',
+                'lab-step1-p':    'カスタムAIツールがプロダクト要件に基づき、データベーススキーマのスキャフォールディング、初期APIエンドポイントの生成、テストカバレッジの確立を即座に行います。',
+                'lab-step2-h':    'ヒューマンエンジニアリング',
+                'lab-step2-p':    'シニアエンジニアがアーキテクトおよびコードエディタとして即座に参加し、レビュー・最適化・セキュリティ強化・エンタープライズ基準への統合を行います。',
+                'lab-res-h':      '結果（ラボベンチマーク）',
+                'lab-res1-stat':  '35〜40%',
+                'lab-res1-label': '市場投入時間',
+                'lab-res1-p':     '製品デリバリーのタイムラインを圧縮。',
+                'lab-res2-stat':  '25%',
+                'lab-res2-label': 'エラー削減',
+                'lab-res2-p':     '自動エッジケーステスト生成により、初期QAバグが減少。',
+                'lab-res3-stat':  '最適化済み',
+                'lab-res3-label': 'コスト効率',
+                'lab-res3-p':     '手動開発工数を大幅削減し、高品質でスケーラブルなソフトウェアを競争力あるコストで提供。',
+                'lab-sdlc-h':       'SDLC自動化パイプライン',
+                'svg-human':        '人間',
+                'svg-req':          '要件定義',
+                'svg-req-sub':      'AI解析・スコーピング',
+                'svg-arch':         'アーキテクチャ',
+                'svg-arch-sub':     '人間によるレビュー',
+                'svg-codegen':      'コード生成',
+                'svg-codegen-sub':  'スキャフォールド・API・スキーマ',
+                'svg-testing':      'テスト',
+                'svg-testing-sub':  '自動テストカバレッジ',
+                'svg-review':       'コードレビュー',
+                'svg-review-sub':   '最適化・セキュリティ',
+                'svg-deploy':       'デプロイ',
+                'svg-deploy-sub':   'CI/CD・監視',
+                'svg-feedback':     'フィードバックループ',
+                'svg-feedback-sub': '学習・最適化',
+                'svg-legend-ai':    'AI自動化',
+                'svg-legend-human': '人間チェックポイント',
+                'svg-legend-fb':    'フィードバック・反復',
+                'svg-callout1':     '35〜40%高速化 · バグ25%削減 · エンジニアはアーキテクチャとセキュリティに集中',
+                'svg-callout2':     'ボイラープレート・スキャフォールディング・テスト生成・CI/CDを自律的に処理',
+                'lab-agents-meta':'6ツール · AI駆動スタック',
+                'modal-title':    '専門家に連絡する',
+                'modal-sub':      'ご連絡先をお知らせください。Kizunaのエンジニアが折り返しご連絡します。',
+                'modal-email':    'ビジネスメールアドレス',
+                'modal-btn':      'お問い合わせを送信',
+                'modal-success':  '近日中にご連絡いたします。',
+                'footer-tagline': '世界で最も野心的な企業の<br>デジタル基盤を構築します。',
+                'footer-svc-h':   'サービス',
+                'footer-svc1':    'クラウドインフラ',
+                'footer-svc2':    'AI・機械学習',
+                'footer-svc3':    'ロボティクス・システム',
+                'footer-svc4':    'ウェブアプリケーション',
+                'footer-svc5':    'モバイルアプリ',
+                'footer-cta-h':   'プロジェクトを始める',
+                'footer-cta-p':   '卓越したものを構築する準備はできていますか？エンジニアがお待ちしています。',
+                'footer-cta-btn': 'エンジニアに連絡する →',
+                'footer-copy':    'Kizuna Software Solutions © 2026',
+            }
+        };
+
+        function setLang(lang) {
+            const t = translations[lang];
+            const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+            const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+
+            // Nav
+            set('t-nav-cloud',    t['nav-cloud']);
+            set('t-nav-ai',       t['nav-ai']);
+            set('t-nav-robotics', t['nav-robotics']);
+            set('t-nav-web',      t['nav-web']);
+            set('t-nav-mobile',   t['nav-mobile']);
+            set('t-nav-lab',      t['nav-lab']);
+            set('t-nav-contact',  t['nav-contact']);
+            // Nav mobile
+            set('t-mnav-cloud',    t['nav-cloud']);
+            set('t-mnav-ai',       t['nav-ai']);
+            set('t-mnav-robotics', t['nav-robotics']);
+            set('t-mnav-web',      t['nav-web']);
+            set('t-mnav-mobile',   t['nav-mobile']);
+            set('t-mnav-lab',      t['nav-lab']);
+            // Hero
+            set('t-hero-badge',   t['hero-badge']);
+            set('t-hero-h1',      t['hero-h1']);
+            set('t-hero-p',       t['hero-p']);
+            set('t-hero-cta',     t['hero-cta']);
+            set('t-hero-explore', t['hero-explore']);
+            // Cloud
+            set('t-cloud-label',  t['cloud-label']);
+            set('t-cloud-h3',     t['cloud-h3']);
+            set('t-cloud-p',      t['cloud-p']);
+            set('t-cloud-f1',     t['cloud-f1']);
+            set('t-cloud-f2',     t['cloud-f2']);
+            set('t-cloud-f3',     t['cloud-f3']);
+            set('t-cloud-f4',     t['cloud-f4']);
+            // AI
+            set('t-ai-label',     t['ai-label']);
+            set('t-ai-h3',        t['ai-h3']);
+            set('t-ai-p',         t['ai-p']);
+            set('t-ai-f1-h',      t['ai-f1-h']);
+            set('t-ai-f1-p',      t['ai-f1-p']);
+            set('t-ai-f2-h',      t['ai-f2-h']);
+            set('t-ai-f2-p',      t['ai-f2-p']);
+            set('t-ai-f3-h',      t['ai-f3-h']);
+            set('t-ai-f3-p',      t['ai-f3-p']);
+            set('t-ai-f4-h',      t['ai-f4-h']);
+            set('t-ai-f4-p',      t['ai-f4-p']);
+            // Robotics
+            set('t-robotics-label', t['robotics-label']);
+            set('t-robotics-h3',    t['robotics-h3']);
+            set('t-robotics-p',     t['robotics-p']);
+            set('t-robotics-f1',    t['robotics-f1']);
+            set('t-robotics-f2',    t['robotics-f2']);
+            set('t-robotics-f3',    t['robotics-f3']);
+            set('t-robotics-f4',    t['robotics-f4']);
+            // Web
+            set('t-web-label',    t['web-label']);
+            set('t-web-h3',       t['web-h3']);
+            set('t-web-p',        t['web-p']);
+            set('t-web-f1',       t['web-f1']);
+            set('t-web-f2',       t['web-f2']);
+            set('t-web-f3',       t['web-f3']);
+            set('t-web-f4',       t['web-f4']);
+            // Mobile
+            set('t-mobile-label', t['mobile-label']);
+            set('t-mobile-h3',    t['mobile-h3']);
+            set('t-mobile-p',     t['mobile-p']);
+            set('t-mobile-f1',    t['mobile-f1']);
+            set('t-mobile-f2',    t['mobile-f2']);
+            set('t-mobile-f3',    t['mobile-f3']);
+            set('t-mobile-f4',    t['mobile-f4']);
+            // Tech Arsenal
+            set('t-tech-h2',      t['tech-h2']);
+            set('t-tech-p',       t['tech-p']);
+            // Lab
+            set('t-lab-label',      t['lab-label']);
+            set('t-lab-badge',      t['lab-badge']);
+            set('t-lab-meta',       t['lab-meta']);
+            set('t-lab-h3',         t['lab-h3']);
+            set('t-lab-hyp-h',      t['lab-hyp-h']);
+            set('t-lab-hyp-p',      t['lab-hyp-p']);
+            set('t-lab-impl-h',     t['lab-impl-h']);
+            set('t-lab-impl-p',     t['lab-impl-p']);
+            set('t-lab-step1-h',    t['lab-step1-h']);
+            set('t-lab-step1-p',    t['lab-step1-p']);
+            set('t-lab-step2-h',    t['lab-step2-h']);
+            set('t-lab-step2-p',    t['lab-step2-p']);
+            set('t-lab-res-h',      t['lab-res-h']);
+            set('t-lab-res1-stat',  t['lab-res1-stat']);
+            set('t-lab-res1-label', t['lab-res1-label']);
+            set('t-lab-res1-p',     t['lab-res1-p']);
+            set('t-lab-res2-stat',  t['lab-res2-stat']);
+            set('t-lab-res2-label', t['lab-res2-label']);
+            set('t-lab-res2-p',     t['lab-res2-p']);
+            set('t-lab-res3-stat',  t['lab-res3-stat']);
+            set('t-lab-res3-label', t['lab-res3-label']);
+            set('t-lab-res3-p',     t['lab-res3-p']);
+            set('t-lab-sdlc-h',     t['lab-sdlc-h']);
+            // SVG diagram
+            set('t-svg-ai1',          'AI');
+            set('t-svg-ai2',          'AI');
+            set('t-svg-human',        t['svg-human']);
+            set('t-svg-req',          t['svg-req']);
+            set('t-svg-req-sub',      t['svg-req-sub']);
+            set('t-svg-arch',         t['svg-arch']);
+            set('t-svg-arch-sub',     t['svg-arch-sub']);
+            set('t-svg-codegen',      t['svg-codegen']);
+            set('t-svg-codegen-sub',  t['svg-codegen-sub']);
+            set('t-svg-testing',      t['svg-testing']);
+            set('t-svg-testing-sub',  t['svg-testing-sub']);
+            set('t-svg-review',       t['svg-review']);
+            set('t-svg-review-sub',   t['svg-review-sub']);
+            set('t-svg-deploy',       t['svg-deploy']);
+            set('t-svg-deploy-sub',   t['svg-deploy-sub']);
+            set('t-svg-feedback',     t['svg-feedback']);
+            set('t-svg-feedback-sub', t['svg-feedback-sub']);
+            set('t-svg-legend-ai',    t['svg-legend-ai']);
+            set('t-svg-legend-human', t['svg-legend-human']);
+            set('t-svg-legend-feedback', t['svg-legend-fb']);
+            set('t-svg-callout1',     t['svg-callout1']);
+            set('t-svg-callout2',     t['svg-callout2']);
+            set('t-lab-agents-h',   t['lab-agents-h']);
+            set('t-lab-agents-meta',t['lab-agents-meta']);
+            // Modal
+            set('modal-title',      t['modal-title']);
+            set('modal-subtitle',   t['modal-sub']);
+            const emailInput = document.getElementById('modal-email');
+            if (emailInput) emailInput.placeholder = t['modal-email'];
+            set('modal-submit',     t['modal-btn']);
+            // Footer
+            set('t-footer-tagline', t['footer-tagline']);
+            set('t-footer-svc-h',   t['footer-svc-h']);
+            set('t-footer-svc1',    t['footer-svc1']);
+            set('t-footer-svc2',    t['footer-svc2']);
+            set('t-footer-svc3',    t['footer-svc3']);
+            set('t-footer-svc4',    t['footer-svc4']);
+            set('t-footer-svc5',    t['footer-svc5']);
+            set('t-footer-cta-h',   t['footer-cta-h']);
+            set('t-footer-cta-p',   t['footer-cta-p']);
+            set('t-footer-cta-btn', t['footer-cta-btn']);
+            set('t-footer-copy',    t['footer-copy']);
+
+            // Toggle tab styles
+            document.getElementById('lang-en').className = lang === 'en'
+                ? 'px-4 py-2 rounded-full transition-all bg-indigo-600 text-white'
+                : 'px-4 py-2 rounded-full transition-all text-slate-400 hover:text-white';
+            document.getElementById('lang-ja').className = lang === 'ja'
+                ? 'px-4 py-2 rounded-full transition-all bg-indigo-600 text-white'
+                : 'px-4 py-2 rounded-full transition-all text-slate-400 hover:text-white';
+
+            // Brand tagline
+            set('t-brand-sub', t['brand-sub']);
+
+            // Set html lang attribute
+            document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
+        }
     </script>
 </body>
 </html>
