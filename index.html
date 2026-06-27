@@ -85,7 +85,7 @@
     </div>
 
     <nav class="flex justify-between items-center px-6 md:px-10 py-6 border-b border-white/10 glass sticky top-0 z-50">
-        <a href="#top" class="text-xl md:text-2xl font-black tracking-[0.2em]">KIZUNA <span id="t-brand-sub" style="color:#818cf8; font-weight:700; letter-spacing:0.3em; font-size:0.65rem;" class="uppercase">Software Solutions</span></a>
+        <a href="#top" class="text-xl md:text-2xl font-black tracking-[0.2em]"><span id="t-brand-name">KIZUNA</span> <span id="t-brand-sub" style="color:#818cf8; font-weight:700; letter-spacing:0.3em; font-size:0.65rem;" class="uppercase">Software Solutions</span></a>
         <div class="hidden lg:flex gap-8 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
             <a href="#cloud" class="nav-link hover:text-white transition"><span id="t-nav-cloud">Cloud</span></a>
             <a href="#ai" class="nav-link hover:text-white transition"><span id="t-nav-ai">AI & ML</span></a>
@@ -635,6 +635,7 @@
         const translations = {
             en: {
                 // Nav
+                'brand-name':     'KIZUNA',
                 'brand-sub':      'Software Solutions',
                 'nav-cloud':      'Cloud',
                 'nav-ai':         'AI & ML',
@@ -761,6 +762,7 @@
                 'footer-copy':    'Kizuna Software Solutions © 2026',
             },
             ja: {
+                'brand-name':     '絆',
                 'brand-sub':      'ソフトウェアソリューションズ',
                 'nav-cloud':      'クラウド',
                 'nav-ai':         'AI・ML',
@@ -1028,6 +1030,7 @@
                 : 'px-4 py-2 rounded-full transition-all text-slate-400 hover:text-white';
 
             // Brand tagline
+            set('t-brand-name', t['brand-name']);
             set('t-brand-sub', t['brand-sub']);
 
             // Set html lang attribute
