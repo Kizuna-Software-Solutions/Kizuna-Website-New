@@ -268,6 +268,9 @@
             </div>
         </section>
 
+        </section>
+
+
         <section id="lab" class="max-w-7xl mx-auto px-6 py-24">
             <h2 class="text-indigo-400 font-mono text-[10px] tracking-[0.4em] uppercase mb-8 text-center" id="t-lab-label">Project Lab</h2>
 
@@ -321,96 +324,265 @@
                 </div>
 
                 <div class="mt-10 pt-10 border-t border-white/5">
-                    <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-6" id="t-lab-sdlc-h">SDLC Automation Pipeline</h4>
-                    <div class="rounded-[1.75rem] bg-slate-950/40 border border-white/5 p-6 overflow-hidden">
-                        <svg width="100%" viewBox="0 0 720 490" role="img">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
+                        <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest" id="t-accel-tabs-h">Build &amp; Sustain AI</h4>
+                        <div class="flex items-center bg-slate-950/60 border border-white/10 rounded-full p-1 text-[10px] font-black uppercase tracking-widest gap-1">
+                            <button onclick="switchAccelTab('build')" id="accel-tab-btn-build" class="px-4 py-2 rounded-full transition-all bg-indigo-600 text-white"><span id="t-accel-tab-build">Build Process</span></button>
+                            <button onclick="switchAccelTab('lifecycle')" id="accel-tab-btn-lifecycle" class="px-4 py-2 rounded-full transition-all text-slate-400 hover:text-white"><span id="t-accel-tab-lifecycle">AI Lifecycle</span></button>
+                            <button onclick="switchAccelTab('model')" id="accel-tab-btn-model" class="px-4 py-2 rounded-full transition-all text-slate-400 hover:text-white"><span id="t-accel-tab-model">Model Selection</span></button>
+                            <button onclick="switchAccelTab('agents')" id="accel-tab-btn-agents" class="px-4 py-2 rounded-full transition-all text-slate-400 hover:text-white"><span id="t-accel-tab-agents">Coding Agents</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Tab panel: Build Process (SDLC) -->
+                    <div id="accel-panel-build">
+                        <p class="text-slate-600 text-[10px] font-mono uppercase tracking-widest mb-4" id="t-lab-sdlc-tag">Process loop &middot; repeats per project</p>
+                        <div class="rounded-[1.75rem] bg-slate-950/40 border border-white/5 p-6 overflow-hidden">
+                            <svg width="100%" viewBox="0 0 820 370" role="img">
                             <title>SDLC automation pipeline</title>
-                            <desc>AI-driven software development lifecycle from requirements through deployment, with human review checkpoints at architecture and code review stages.</desc>
                             <defs>
                                 <marker id="sdlc-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 1L8 5L2 9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </marker>
+                                <marker id="fb-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M2 1L8 5L2 9" fill="none" stroke="rgba(165,163,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </marker>
                             </defs>
-                            <!-- Lane backgrounds -->
-                            <rect x="30" y="40" width="660" height="80" rx="8" fill="rgba(99,102,241,0.07)"/>
-                            <rect x="30" y="132" width="660" height="80" rx="8" fill="rgba(16,185,129,0.06)"/>
-                            <rect x="30" y="224" width="660" height="80" rx="8" fill="rgba(99,102,241,0.07)"/>
-                            <!-- Lane labels -->
-                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(99,102,241,0.7)" x="42" y="85" dominant-baseline="central" id="t-svg-ai1">AI</text>
-                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(16,185,129,0.7)" x="42" y="177" dominant-baseline="central" id="t-svg-human">HUMAN</text>
-                            <text font-size="10" font-family="monospace" font-weight="700" letter-spacing="0.08em" fill="rgba(99,102,241,0.7)" x="42" y="269" dominant-baseline="central" id="t-svg-ai2">AI</text>
-                            <!-- Dividers -->
-                            <line x1="30" y1="128" x2="690" y2="128" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                            <line x1="30" y1="220" x2="690" y2="220" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                            <line x1="30" y1="312" x2="690" y2="312" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                            <!-- Step 1: Requirements -->
-                            <rect x="74" y="52" width="116" height="56" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="132" y="74" id="t-svg-req">Requirements</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="132" y="93" id="t-svg-req-sub">AI parsing &amp; scoping</text>
-                            <!-- 1 → Code gen (horizontal) -->
-                            <path d="M190 80 L218 80" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
-                            <!-- 1 → Architecture (diagonal down) -->
-                            <path d="M190 85 L205 85 L205 172 L218 172" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
-                            <!-- Step 2: Architecture (human lane) -->
-                            <rect x="218" y="144" width="116" height="56" rx="8" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(110,231,183,1)" text-anchor="middle" dominant-baseline="central" x="276" y="166" id="t-svg-arch">Architecture</text>
-                            <text font-size="11" fill="rgba(16,185,129,0.7)" text-anchor="middle" dominant-baseline="central" x="276" y="185" id="t-svg-arch-sub">Human design review</text>
-                            <!-- Architecture → Code gen (up) -->
-                            <path d="M276 144 L276 108" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
-                            <!-- Step 3: Code gen (AI lane) -->
-                            <rect x="218" y="52" width="116" height="56" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="276" y="74" id="t-svg-codegen">Code generation</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="276" y="93" id="t-svg-codegen-sub">Scaffold, APIs, schemas</text>
-                            <!-- Code gen → Testing -->
-                            <path d="M334 80 L362 80" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
-                            <!-- Step 4: Testing (AI lane) -->
-                            <rect x="362" y="52" width="116" height="56" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="420" y="74" id="t-svg-testing">Testing</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="420" y="93" id="t-svg-testing-sub">Auto test coverage</text>
-                            <!-- Testing ↔ Code review -->
-                            <path d="M420 108 L420 144" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
-                            <path d="M410 144 L410 108" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#sdlc-arrow)"/>
-                            <!-- Step 5: Code review (human lane) -->
-                            <rect x="362" y="144" width="116" height="56" rx="8" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(110,231,183,1)" text-anchor="middle" dominant-baseline="central" x="420" y="166" id="t-svg-review">Code review</text>
-                            <text font-size="11" fill="rgba(16,185,129,0.7)" text-anchor="middle" dominant-baseline="central" x="420" y="185" id="t-svg-review-sub">Optimize &amp; secure</text>
-                            <!-- Code review → Deployment -->
-                            <path d="M478 172 L491 172 L491 80 L506 80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
-                            <!-- Testing → Deployment -->
-                            <path d="M478 80 L506 80" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
-                            <!-- Step 6: Deployment (AI lane) -->
-                            <rect x="506" y="52" width="116" height="56" rx="8" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.4)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,1)" text-anchor="middle" dominant-baseline="central" x="564" y="74" id="t-svg-deploy">Deployment</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.7)" text-anchor="middle" dominant-baseline="central" x="564" y="93" id="t-svg-deploy-sub">CI/CD &amp; monitoring</text>
-                            <!-- Deployment → Feedback (down + left) -->
-                            <path d="M564 108 L564 350 L430 350 L430 268 L418 268" fill="none" stroke="rgba(165,163,255,0.3)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#sdlc-arrow)"/>
-                            <!-- Step 7: Feedback loop (AI lane, bottom) -->
-                            <rect x="302" y="240" width="116" height="56" rx="8" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.3)" stroke-width="0.5"/>
-                            <text font-size="13" font-weight="600" fill="rgba(165,163,255,0.9)" text-anchor="middle" dominant-baseline="central" x="360" y="262" id="t-svg-feedback">Feedback loop</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.6)" text-anchor="middle" dominant-baseline="central" x="360" y="281" id="t-svg-feedback-sub">Learn &amp; optimise</text>
-                            <!-- Feedback → Requirements (cycle back) -->
-                            <path d="M302 268 L132 268 L132 108" fill="none" stroke="rgba(165,163,255,0.25)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#sdlc-arrow)"/>
-                            <!-- Legend -->
-                            <rect x="74" y="364" width="12" height="12" rx="3" fill="rgba(99,102,241,0.6)"/>
-                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="92" y="370" dominant-baseline="central" id="t-svg-legend-ai">AI automated</text>
-                            <rect x="294" y="364" width="12" height="12" rx="3" fill="rgba(16,185,129,0.6)"/>
-                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="312" y="370" dominant-baseline="central" id="t-svg-legend-human">Human checkpoint</text>
-                            <line x1="514" y1="370" x2="544" y2="370" stroke="rgba(165,163,255,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
-                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="552" y="370" dominant-baseline="central" id="t-svg-legend-feedback">Feedback / iteration</text>
-                            <!-- Callout bar -->
-                            <rect x="74" y="392" width="572" height="48" rx="8" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.2)" stroke-width="0.5"/>
-                            <text font-size="12" font-weight="600" fill="rgba(165,163,255,0.9)" text-anchor="middle" dominant-baseline="central" x="360" y="411" id="t-svg-callout1">35–40% faster · 25% fewer bugs · engineers focused on architecture &amp; security</text>
-                            <text font-size="11" fill="rgba(99,102,241,0.6)" text-anchor="middle" dominant-baseline="central" x="360" y="429" id="t-svg-callout2">Boilerplate, scaffolding, test generation &amp; CI/CD handled autonomously</text>
-                        </svg>
-                    </div>
-                </div>
 
-                <div class="mt-10 pt-10 border-t border-white/5">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
-                        <h4 class="text-indigo-400 text-xs font-black uppercase tracking-widest"><span id="t-lab-agents-h">Coding Agents in Our Pipeline</span></h4>
-                        <span class="text-slate-600 text-[10px] font-mono uppercase tracking-widest"><span id="t-lab-agents-meta">6 tools · AI driven stack</span></span>
+                            <!-- ── ROW 1: Steps 1–4 ── -->
+
+                            <!-- STEP 1: Client Brief (Human) -->
+                            <rect x="12" y="28" width="175" height="76" rx="10" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.7)" stroke-width="1.5"/>
+                            <circle cx="12" cy="28" r="10" fill="rgba(16,185,129,0.9)"/>
+                            <text font-size="10" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" x="12" y="28">1</text>
+                            <text font-size="8" font-weight="700" letter-spacing="0.1em" fill="rgba(16,185,129,0.8)" text-anchor="middle" x="99" y="46">HUMAN</text>
+                            <text font-size="12" font-weight="700" fill="rgba(110,231,183,1)" text-anchor="middle" x="99" y="64" id="t-svg-client">Client Brief</text>
+                            <text font-size="9" fill="rgba(16,185,129,0.65)" text-anchor="middle" x="99" y="80" id="t-svg-client-sub">Provides requirements</text>
+                            <line x1="187" y1="66" x2="202" y2="66" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
+
+                            <!-- STEP 2: Requirements (AI) -->
+                            <rect x="202" y="28" width="175" height="76" rx="10" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.7)" stroke-width="1.5"/>
+                            <circle cx="202" cy="28" r="10" fill="rgba(99,102,241,0.9)"/>
+                            <text font-size="10" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" x="202" y="28">2</text>
+                            <text font-size="8" font-weight="700" letter-spacing="0.1em" fill="rgba(165,163,255,0.8)" text-anchor="middle" x="289" y="46">AI</text>
+                            <text font-size="12" font-weight="700" fill="rgba(165,163,255,1)" text-anchor="middle" x="289" y="64" id="t-svg-req">Requirements</text>
+                            <text font-size="9" fill="rgba(99,102,241,0.7)" text-anchor="middle" x="289" y="80" id="t-svg-req-sub">Parsing &amp; scoping</text>
+                            <line x1="377" y1="66" x2="392" y2="66" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
+
+                            <!-- STEP 3: Architecture (Human) -->
+                            <rect x="392" y="28" width="175" height="76" rx="10" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.7)" stroke-width="1.5"/>
+                            <circle cx="392" cy="28" r="10" fill="rgba(16,185,129,0.9)"/>
+                            <text font-size="10" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" x="392" y="28">3</text>
+                            <text font-size="8" font-weight="700" letter-spacing="0.1em" fill="rgba(16,185,129,0.8)" text-anchor="middle" x="479" y="46">HUMAN</text>
+                            <text font-size="12" font-weight="700" fill="rgba(110,231,183,1)" text-anchor="middle" x="479" y="64" id="t-svg-arch">Architecture</text>
+                            <text font-size="9" fill="rgba(16,185,129,0.65)" text-anchor="middle" x="479" y="80" id="t-svg-arch-sub">Design review</text>
+                            <line x1="567" y1="66" x2="582" y2="66" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
+
+                            <!-- STEP 4: Code Generation (AI) -->
+                            <rect x="582" y="28" width="175" height="76" rx="10" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.7)" stroke-width="1.5"/>
+                            <circle cx="582" cy="28" r="10" fill="rgba(99,102,241,0.9)"/>
+                            <text font-size="10" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" x="582" y="28">4</text>
+                            <text font-size="8" font-weight="700" letter-spacing="0.1em" fill="rgba(165,163,255,0.8)" text-anchor="middle" x="669" y="46">AI</text>
+                            <text font-size="12" font-weight="700" fill="rgba(165,163,255,1)" text-anchor="middle" x="669" y="64" id="t-svg-codegen">Code Generation</text>
+                            <text font-size="9" fill="rgba(99,102,241,0.7)" text-anchor="middle" x="669" y="80" id="t-svg-codegen-sub">Scaffold, APIs, schemas</text>
+                            <!-- Arrow 4 → down to row 2 -->
+                            <path d="M669 104 L669 148" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
+
+                            <!-- ── ROW 2: Steps 7, 6, 5a, 5b (same widths) ── -->
+                            <!-- SIMULTANEOUS banner -->
+                            <rect x="392" y="130" width="365" height="14" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+                            <text font-size="9" font-weight="700" letter-spacing="0.08em" fill="rgba(255,255,255,0.35)" text-anchor="middle" x="574" y="140" id="t-svg-parallel-label">SIMULTANEOUS</text>
+
+                            <!-- STEP 7: Delivered (Human) x=12 -->
+                            <rect x="12" y="148" width="175" height="76" rx="10" fill="rgba(16,185,129,0.18)" stroke="rgba(16,185,129,0.8)" stroke-width="2"/>
+                            <circle cx="12" cy="148" r="10" fill="rgba(16,185,129,0.9)"/>
+                            <text font-size="10" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" x="12" y="148">7</text>
+                            <text font-size="8" font-weight="700" letter-spacing="0.1em" fill="rgba(16,185,129,0.8)" text-anchor="middle" x="99" y="166">HUMAN</text>
+                            <text font-size="12" font-weight="700" fill="rgba(110,231,183,1)" text-anchor="middle" x="99" y="184" id="t-svg-delivered">Delivered</text>
+                            <text font-size="9" fill="rgba(16,185,129,0.65)" text-anchor="middle" x="99" y="200" id="t-svg-delivered-sub">Client receives product</text>
+
+                            <!-- STEP 6: Deployment (AI) x=202 -->
+                            <rect x="202" y="148" width="175" height="76" rx="10" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.7)" stroke-width="1.5"/>
+                            <circle cx="202" cy="148" r="10" fill="rgba(99,102,241,0.9)"/>
+                            <text font-size="10" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" x="202" y="148">6</text>
+                            <text font-size="8" font-weight="700" letter-spacing="0.1em" fill="rgba(165,163,255,0.8)" text-anchor="middle" x="289" y="166">AI</text>
+                            <text font-size="12" font-weight="700" fill="rgba(165,163,255,1)" text-anchor="middle" x="289" y="184" id="t-svg-deploy">Deployment</text>
+                            <text font-size="9" fill="rgba(99,102,241,0.7)" text-anchor="middle" x="289" y="200" id="t-svg-deploy-sub">CI/CD &amp; monitoring</text>
+                            <line x1="202" y1="186" x2="187" y2="186" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
+
+                            <!-- STEP 5a: Testing (AI) x=392 — same width as others -->
+                            <rect x="392" y="148" width="175" height="76" rx="10" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.7)" stroke-width="1.5"/>
+                            <circle cx="392" cy="148" r="10" fill="rgba(99,102,241,0.9)"/>
+                            <text font-size="10" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" x="392" y="148">5a</text>
+                            <text font-size="8" font-weight="700" letter-spacing="0.1em" fill="rgba(165,163,255,0.8)" text-anchor="middle" x="479" y="166">AI</text>
+                            <text font-size="12" font-weight="700" fill="rgba(165,163,255,1)" text-anchor="middle" x="479" y="184" id="t-svg-testing">Testing</text>
+                            <text font-size="9" fill="rgba(99,102,241,0.7)" text-anchor="middle" x="479" y="200" id="t-svg-testing-sub">Auto test coverage</text>
+                            <line x1="392" y1="186" x2="377" y2="186" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#sdlc-arrow)"/>
+
+                            <!-- STEP 5b: Code Review (Human) x=582 — same width as others -->
+                            <rect x="582" y="148" width="175" height="76" rx="10" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.7)" stroke-width="1.5"/>
+                            <circle cx="582" cy="148" r="10" fill="rgba(16,185,129,0.9)"/>
+                            <text font-size="10" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" x="582" y="148">5b</text>
+                            <text font-size="8" font-weight="700" letter-spacing="0.1em" fill="rgba(16,185,129,0.8)" text-anchor="middle" x="669" y="166">HUMAN</text>
+                            <text font-size="12" font-weight="700" fill="rgba(110,231,183,1)" text-anchor="middle" x="669" y="184" id="t-svg-review">Code Review</text>
+                            <text font-size="9" fill="rgba(16,185,129,0.65)" text-anchor="middle" x="669" y="200" id="t-svg-review-sub">Optimize &amp; secure</text>
+
+                            <!-- ── FEEDBACK LOOP ── -->
+                            <path d="M99 224 L99 252" fill="none" stroke="rgba(165,163,255,0.5)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#fb-arrow)"/>
+                            <rect x="12" y="252" width="370" height="64" rx="8" fill="rgba(99,102,241,0.07)" stroke="rgba(165,163,255,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+                            <text font-size="11" font-weight="700" fill="rgba(165,163,255,0.9)" text-anchor="middle" x="197" y="272" id="t-svg-feedback">Feedback loop</text>
+                            <text font-size="9" fill="rgba(165,163,255,0.55)" text-anchor="middle" x="197" y="288" id="t-svg-feedback-sub">Learn &amp; optimise</text>
+                            <text font-size="9" font-weight="600" fill="rgba(165,163,255,0.75)" text-anchor="middle" x="197" y="304" id="t-svg-fb-label">Restarts from Step 2 (Requirements)</text>
+
+                            <!-- ── LEGEND ── -->
+                            <rect x="400" y="262" width="12" height="12" rx="3" fill="rgba(99,102,241,0.7)"/>
+                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="418" y="268" dominant-baseline="central" id="t-svg-legend-ai">AI automated</text>
+                            <rect x="540" y="262" width="12" height="12" rx="3" fill="rgba(16,185,129,0.7)"/>
+                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="558" y="268" dominant-baseline="central" id="t-svg-legend-human">Human checkpoint</text>
+                            <line x1="700" y1="268" x2="725" y2="268" stroke="rgba(165,163,255,0.5)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                            <text font-size="11" fill="rgba(255,255,255,0.45)" x="733" y="268" dominant-baseline="central" id="t-svg-legend-feedback">Feedback</text>
+
+                            <!-- ── CALLOUT ── -->
+                            <rect x="12" y="330" width="796" height="34" rx="8" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.2)" stroke-width="0.5"/>
+                            <text font-size="11" font-weight="600" fill="rgba(165,163,255,0.9)" text-anchor="middle" dominant-baseline="central" x="410" y="347" id="t-svg-callout1">35–40% faster · 25% fewer bugs · engineers focused on architecture &amp; security</text>
+                        </svg>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    <!-- Tab panel: AI Lifecycle (circular) -->
+                    <div id="accel-panel-lifecycle" class="hidden">
+                        <p class="text-slate-600 text-[10px] font-mono uppercase tracking-widest mb-4" id="t-strategy-pipeline-tag">Model loop &middot; continuous, no fixed end</p>
+                        <div class="rounded-[1.75rem] bg-slate-950/40 border border-white/5 p-6 overflow-hidden">
+                            <svg width="100%" viewBox="0 0 700 400" role="img">
+                            <defs>
+                                <marker id="ai-arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M2 1L8 5L2 9" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </marker>
+                            </defs>
+
+                            <!-- Subtle circular guide -->
+                            <circle cx="350" cy="205" r="130" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+                            <!-- Center hub -->
+                            <circle cx="350" cy="205" r="47" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.25)" stroke-width="1" stroke-dasharray="3 3"/>
+                            <text font-size="13" font-weight="800" fill="rgba(165,163,255,1)" text-anchor="middle" x="350" y="200" id="t-ai-hub-1">Kaizen</text>
+                            <text font-size="9" font-weight="600" fill="rgba(165,163,255,0.7)" text-anchor="middle" x="350" y="216" id="t-ai-hub-2">Loop</text>
+
+                            <!-- Connecting arcs (under boxes) -->
+                            <path d="M360.9 127.8 A 78 78 0 0 1 420.1 170.8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#ai-arrow2)"/>
+                            <path d="M426.8 191.5 A 78 78 0 0 1 404.2 261.1" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#ai-arrow2)"/>
+                            <path d="M386.6 273.9 A 78 78 0 0 1 313.4 273.9" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#ai-arrow2)"/>
+                            <path d="M295.8 261.1 A 78 78 0 0 1 273.2 191.5" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#ai-arrow2)"/>
+                            <path d="M279.9 170.8 A 78 78 0 0 1 339.1 127.8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#ai-arrow2)"/>
+
+                            <!-- Node 1: Deploy -->
+                            <rect x="295" y="45" width="110" height="60" rx="10" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.6)" stroke-width="1.5"/>
+                            <text font-size="8" font-weight="700" letter-spacing="0.08em" fill="rgba(165,163,255,0.7)" text-anchor="middle" x="350" y="62">01</text>
+                            <text font-size="11" font-weight="700" fill="rgba(165,163,255,1)" text-anchor="middle" x="350" y="78" id="t-ai-pipe-1">Deploy</text>
+                            <text font-size="8" fill="rgba(99,102,241,0.7)" text-anchor="middle" x="350" y="93" id="t-ai-pipe-1-sub">Cloud / on-premise</text>
+
+                            <!-- Node 2: Monitor -->
+                            <rect x="418.6" y="134.8" width="110" height="60" rx="10" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.6)" stroke-width="1.5"/>
+                            <text font-size="8" font-weight="700" letter-spacing="0.08em" fill="rgba(110,231,183,0.7)" text-anchor="middle" x="473.6" y="151.8">02</text>
+                            <text font-size="11" font-weight="700" fill="rgba(110,231,183,1)" text-anchor="middle" x="473.6" y="167.8" id="t-ai-pipe-2">Monitor</text>
+                            <text font-size="8" fill="rgba(16,185,129,0.7)" text-anchor="middle" x="473.6" y="182.8" id="t-ai-pipe-2-sub">Latency, accuracy, cost</text>
+
+                            <!-- Node 3: Detect Drift -->
+                            <rect x="371.4" y="280.2" width="110" height="60" rx="10" fill="rgba(251,146,60,0.12)" stroke="rgba(251,146,60,0.6)" stroke-width="1.5"/>
+                            <text font-size="8" font-weight="700" letter-spacing="0.08em" fill="rgba(251,146,60,0.8)" text-anchor="middle" x="426.4" y="297.2">03</text>
+                            <text font-size="11" font-weight="700" fill="rgba(251,191,36,1)" text-anchor="middle" x="426.4" y="313.2" id="t-ai-pipe-3">Detect Drift</text>
+                            <text font-size="8" fill="rgba(251,146,60,0.7)" text-anchor="middle" x="426.4" y="328.2" id="t-ai-pipe-3-sub">Data &amp; model drift alerts</text>
+
+                            <!-- Node 4: Retrain -->
+                            <rect x="218.6" y="280.2" width="110" height="60" rx="10" fill="rgba(244,63,94,0.12)" stroke="rgba(244,63,94,0.5)" stroke-width="1.5"/>
+                            <text font-size="8" font-weight="700" letter-spacing="0.08em" fill="rgba(251,113,133,0.8)" text-anchor="middle" x="273.6" y="297.2">04</text>
+                            <text font-size="11" font-weight="700" fill="rgba(251,113,133,1)" text-anchor="middle" x="273.6" y="313.2" id="t-ai-pipe-4">Retrain</text>
+                            <text font-size="8" fill="rgba(244,63,94,0.7)" text-anchor="middle" x="273.6" y="328.2" id="t-ai-pipe-4-sub">New data, fine-tuning</text>
+
+                            <!-- Node 5: Redeploy -->
+                            <rect x="171.4" y="134.8" width="110" height="60" rx="10" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.6)" stroke-width="1.5"/>
+                            <text font-size="8" font-weight="700" letter-spacing="0.08em" fill="rgba(165,163,255,0.7)" text-anchor="middle" x="226.4" y="151.8">05</text>
+                            <text font-size="11" font-weight="700" fill="rgba(165,163,255,1)" text-anchor="middle" x="226.4" y="167.8" id="t-ai-pipe-5">Redeploy</text>
+                            <text font-size="8" fill="rgba(99,102,241,0.7)" text-anchor="middle" x="226.4" y="182.8" id="t-ai-pipe-5-sub">Zero-downtime rollout</text>
+
+                            <!-- Loop caption -->
+                            <text font-size="9" font-weight="600" fill="rgba(165,163,255,0.5)" text-anchor="middle" x="350" y="382" id="t-ai-pipe-loop">The Kaizen Loop &mdash; continuous, incremental improvement</text>
+                        </svg>
+
+                        </div>
+                    </div>
+
+                    <!-- Tab panel: Model Selection -->
+                    <div id="accel-panel-model" class="hidden">
+                        <p class="text-slate-500 text-sm mb-6" id="t-strategy-model-p">Which AI approach is right for your project? Here's how we think about it.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                        <!-- Fine-tuned -->
+                        <div class="p-6 rounded-[1.75rem] bg-slate-950/50 border border-indigo-500/20 hover:border-indigo-500/40 transition-all flex flex-col gap-3">
+                            <div style="width:48px;height:48px;border-radius:12px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);display:flex;align-items:center;justify-content:center;">
+                                <svg style="width:24px;height:24px;" fill="none" stroke="#818cf8" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-sm mb-1" id="t-model-1-h">Fine-tuned Model</div>
+                                <div class="text-indigo-400 text-[10px] font-bold uppercase tracking-widest mb-3" id="t-model-1-tag">Best for: Domain expertise</div>
+                                <p class="text-slate-400 text-xs leading-relaxed" id="t-model-1-p">When you need a model that deeply understands your industry vocabulary, documents, or processes. High accuracy, higher upfront cost.</p>
+                            </div>
+                            <div class="mt-auto pt-3 border-t border-white/5">
+                                <div class="text-[10px] text-slate-500 font-mono" id="t-model-1-eg">e.g. Legal contract analysis, medical imaging</div>
+                            </div>
+                        </div>
+
+                        <!-- RAG -->
+                        <div class="p-6 rounded-[1.75rem] bg-slate-950/50 border border-emerald-500/20 hover:border-emerald-500/40 transition-all flex flex-col gap-3">
+                            <div style="width:48px;height:48px;border-radius:12px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;">
+                                <svg style="width:24px;height:24px;" fill="none" stroke="#34d399" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-sm mb-1" id="t-model-2-h">RAG Pipeline</div>
+                                <div class="text-emerald-400 text-[10px] font-bold uppercase tracking-widest mb-3" id="t-model-2-tag">Best for: Knowledge retrieval</div>
+                                <p class="text-slate-400 text-xs leading-relaxed" id="t-model-2-p">When your data changes frequently and you need the AI to always answer from up-to-date sources. Fast to deploy, easy to update.</p>
+                            </div>
+                            <div class="mt-auto pt-3 border-t border-white/5">
+                                <div class="text-[10px] text-slate-500 font-mono" id="t-model-2-eg">e.g. Internal knowledge base, support bots</div>
+                            </div>
+                        </div>
+
+                        <!-- Agentic -->
+                        <div class="p-6 rounded-[1.75rem] bg-slate-950/50 border border-orange-500/20 hover:border-orange-500/40 transition-all flex flex-col gap-3">
+                            <div style="width:48px;height:48px;border-radius:12px;background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.2);display:flex;align-items:center;justify-content:center;">
+                                <svg style="width:24px;height:24px;" fill="none" stroke="#fb923c" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.348 14.651a3.75 3.75 0 010-5.303m5.304 0a3.75 3.75 0 010 5.303m-7.425 2.122a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546M5.106 18.894c-3.808-3.808-3.808-9.98 0-13.789m13.788 0c3.808 3.808 3.808 9.981 0 13.789M12 12h.008v.008H12V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-sm mb-1" id="t-model-3-h">Agentic Pipeline</div>
+                                <div class="text-orange-400 text-[10px] font-bold uppercase tracking-widest mb-3" id="t-model-3-tag">Best for: Multi-step automation</div>
+                                <p class="text-slate-400 text-xs leading-relaxed" id="t-model-3-p">When tasks require reasoning across multiple steps, tools, or APIs autonomously. Ideal for complex workflows with minimal human intervention.</p>
+                            </div>
+                            <div class="mt-auto pt-3 border-t border-white/5">
+                                <div class="text-[10px] text-slate-500 font-mono" id="t-model-3-eg">e.g. Automated research, data pipelines</div>
+                            </div>
+                        </div>
+
+                        <!-- Off-the-shelf -->
+                        <div class="p-6 rounded-[1.75rem] bg-slate-950/50 border border-sky-500/20 hover:border-sky-500/40 transition-all flex flex-col gap-3">
+                            <div style="width:48px;height:48px;border-radius:12px;background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.2);display:flex;align-items:center;justify-content:center;">
+                                <svg style="width:24px;height:24px;" fill="none" stroke="#38bdf8" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-sm mb-1" id="t-model-4-h">Off-the-shelf API</div>
+                                <div class="text-sky-400 text-[10px] font-bold uppercase tracking-widest mb-3" id="t-model-4-tag">Best for: Speed to market</div>
+                                <p class="text-slate-400 text-xs leading-relaxed" id="t-model-4-p">When you need AI capabilities fast without custom training. Lower cost, quick integration, ideal for standard tasks with proven models.</p>
+                            </div>
+                            <div class="mt-auto pt-3 border-t border-white/5">
+                                <div class="text-[10px] text-slate-500 font-mono" id="t-model-4-eg">e.g. Sentiment analysis, translation, OCR</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Tab panel: Coding Agents -->
+                    <div id="accel-panel-agents" class="hidden">
+                        <p class="text-slate-600 text-[10px] font-mono uppercase tracking-widest mb-4" id="t-lab-agents-meta">6 tools &middot; AI driven stack</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
                         <div class="group flex items-center gap-5 p-5 rounded-2xl bg-slate-950/40 border border-white/5 hover:border-indigo-500/25 hover:bg-indigo-500/5 transition-all duration-300">
                             <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
@@ -472,7 +644,9 @@
                             </div>
                         </div>
 
+                        </div>
                     </div>
+
                 </div>
 
             </div>
@@ -642,6 +816,7 @@
                 'nav-robotics':   'Robotics',
                 'nav-web':        'Web',
                 'nav-mobile':     'Mobile',
+                'nav-strategy':   'AI Strategy',
                 'nav-lab':        'Project Lab',
                 'nav-contact':    'Contact Expert',
                 // Hero
@@ -698,6 +873,42 @@
                 'tech-h2':        'Technical Arsenal',
                 'tech-p':         'The Stack That Scales.',
                 // Project Lab
+                'strategy-label':  'AI Strategy',
+                'strategy-h':      'How We Deploy & Sustain AI',
+                'strategy-p':      'Enterprise AI doesn\'t end at launch. We architect for longevity — monitoring, retraining, and evolving your models as the world changes.',
+                'strategy-pipeline-h': 'Post-Launch AI Lifecycle',
+                'strategy-pipeline-tag': 'Model loop \u00b7 continuous, no fixed end',
+                'ai-hub-1':        'Kaizen',
+                'ai-hub-2':        'Loop',
+                'ai-pipe-1':       'Deploy',
+                'ai-pipe-1-sub':   'Cloud / on-premise',
+                'ai-pipe-2':       'Monitor',
+                'ai-pipe-2-sub':   'Latency, accuracy, cost',
+                'ai-pipe-3':       'Detect Drift',
+                'ai-pipe-3-sub':   'Data & model drift alerts',
+                'ai-pipe-4':       'Retrain',
+                'ai-pipe-4-sub':   'New data, fine-tuning',
+                'ai-pipe-5':       'Redeploy',
+                'ai-pipe-5-sub':   'Zero-downtime rollout',
+                'ai-pipe-loop':    'The Kaizen Loop \u2014 continuous, incremental improvement',
+                'strategy-model-h':'AI Model Selection Guide',
+                'strategy-model-p':'Which AI approach is right for your project? Here\'s how we think about it.',
+                'model-1-h':       'Fine-tuned Model',
+                'model-1-tag':     'Best for: Domain expertise',
+                'model-1-p':       'When you need a model that deeply understands your industry vocabulary, documents, or processes. High accuracy, higher upfront cost.',
+                'model-1-eg':      'e.g. Legal contract analysis, medical imaging',
+                'model-2-h':       'RAG Pipeline',
+                'model-2-tag':     'Best for: Knowledge retrieval',
+                'model-2-p':       'When your data changes frequently and you need the AI to always answer from up-to-date sources. Fast to deploy, easy to update.',
+                'model-2-eg':      'e.g. Internal knowledge base, support bots',
+                'model-3-h':       'Agentic Pipeline',
+                'model-3-tag':     'Best for: Multi-step automation',
+                'model-3-p':       'When tasks require reasoning across multiple steps, tools, or APIs autonomously. Ideal for complex workflows with minimal human intervention.',
+                'model-3-eg':      'e.g. Automated research, data pipelines',
+                'model-4-h':       'Off-the-shelf API',
+                'model-4-tag':     'Best for: Speed to market',
+                'model-4-p':       'When you need AI capabilities fast without custom training. Lower cost, quick integration, ideal for standard tasks with proven models.',
+                'model-4-eg':      'e.g. Sentiment analysis, translation, OCR',
                 'lab-label':      'Project Lab',
                 'lab-badge':      '📄 The Project Lab Case Study',
                 'lab-meta':       'R&D / Operational Innovation',
@@ -721,6 +932,18 @@
                 'lab-res3-label': 'Cost Efficiency',
                 'lab-res3-p':     'Drastically reduced manual developer hours, delivering premium, scalable software at a highly competitive budget.',
                 'lab-sdlc-h':       'SDLC Automation Pipeline',
+                'accel-tabs-h':     'Build &amp; Sustain AI',
+                'accel-tab-build':  'Build Process',
+                'accel-tab-lifecycle': 'AI Lifecycle',
+                'accel-tab-model':  'Model Selection',
+                'accel-tab-agents': 'Coding Agents',
+                'lab-sdlc-tag':     'Process loop \u00b7 repeats per project',
+                'svg-parallel-label':'SIMULTANEOUS',
+                'svg-fb-label':     '→ back to step 2',
+                'svg-client':       'Client Brief',
+                'svg-client-sub':   'Human provides requirements',
+                'svg-delivered':    'Delivered',
+                'svg-delivered-sub':'Client receives product',
                 'svg-human':        'HUMAN',
                 'svg-req':          'Requirements',
                 'svg-req-sub':      'AI parsing & scoping',
@@ -770,6 +993,7 @@
                 'nav-robotics':   'ロボティクス',
                 'nav-web':        'ウェブ',
                 'nav-mobile':     'モバイル',
+                'nav-strategy':   'AI戦略',
                 'nav-lab':        'プロジェクトラボ',
                 'nav-contact':    'お問い合わせ',
                 'hero-badge':     'Kizuna Software Solutions • 2026',
@@ -818,6 +1042,42 @@
                 'mobile-f4':      'グローバルストア配信',
                 'tech-h2':        '技術スタック',
                 'tech-p':         'スケールする技術基盤。',
+                'strategy-label':  'AI戦略',
+                'strategy-h':      'AIの導入・運用の全体像',
+                'strategy-p':      'エンタープライズAIはリリースで終わりません。モニタリング・再学習・継続的な改善まで、長期的な視点で設計します。',
+                'strategy-pipeline-h': 'リリース後のAIライフサイクル',
+                'strategy-pipeline-tag': 'モデルループ・継続的で終わりがない',
+                'ai-hub-1':        '改善',
+                'ai-hub-2':        'ループ',
+                'ai-pipe-1':       'デプロイ',
+                'ai-pipe-1-sub':   'クラウド / オンプレミス',
+                'ai-pipe-2':       'モニタリング',
+                'ai-pipe-2-sub':   'レイテンシ・精度・コスト',
+                'ai-pipe-3':       'ドリフト検出',
+                'ai-pipe-3-sub':   'データ・モデルの劣化を検知',
+                'ai-pipe-4':       '再学習',
+                'ai-pipe-4-sub':   '新データ・ファインチューニング',
+                'ai-pipe-5':       '再デプロイ',
+                'ai-pipe-5-sub':   'ダウンタイムなし',
+                'ai-pipe-loop':    'カイゼンループ ― 継続的かつ漸進的な改善',
+                'strategy-model-h':'AIモデル選定ガイド',
+                'strategy-model-p':'プロジェクトに最適なAIアプローチは？Kizunaの考え方をご紹介します。',
+                'model-1-h':       'ファインチューニング',
+                'model-1-tag':     '最適: 専門領域への特化',
+                'model-1-p':       '業界特有の語彙・文書・プロセスを深く理解したモデルが必要な場合。高精度ですが初期コストは高め。',
+                'model-1-eg':      '例: 法務契約分析、医療画像診断',
+                'model-2-h':       'RAGパイプライン',
+                'model-2-tag':     '最適: 知識ベース検索',
+                'model-2-p':       'データが頻繁に更新され、常に最新情報から回答する必要がある場合。導入が早く、更新も容易。',
+                'model-2-eg':      '例: 社内ナレッジベース、サポートBot',
+                'model-3-h':       'エージェント型パイプライン',
+                'model-3-tag':     '最適: 複数ステップの自動化',
+                'model-3-p':       '複数のステップ・ツール・APIを自律的に横断するタスクに最適。複雑なワークフローを最小限の人手で実行。',
+                'model-3-eg':      '例: 自動リサーチ、データパイプライン',
+                'model-4-h':       '既成APIの活用',
+                'model-4-tag':     '最適: 素早い市場投入',
+                'model-4-p':       'カスタム学習なしで素早くAI機能を導入したい場合。低コスト・短期間で標準的なタスクに対応。',
+                'model-4-eg':      '例: 感情分析、翻訳、OCR',
                 'lab-label':      'プロジェクトラボ',
                 'lab-badge':      '📄 プロジェクトラボ 事例',
                 'lab-meta':       'R&D / 業務革新',
@@ -841,6 +1101,18 @@
                 'lab-res3-label': 'コスト効率',
                 'lab-res3-p':     '手動開発工数を大幅削減し、高品質でスケーラブルなソフトウェアを競争力あるコストで提供。',
                 'lab-sdlc-h':       'SDLC自動化パイプライン',
+                'accel-tabs-h':     '構築と運用',
+                'accel-tab-build':  'ビルドプロセス',
+                'accel-tab-lifecycle': 'AIライフサイクル',
+                'accel-tab-model':  'モデル選定',
+                'accel-tab-agents': 'コーディングエージェント',
+                'lab-sdlc-tag':     'プロセスループ・プロジェクトごとに繰り返す',
+                'svg-parallel-label':'同時進行',
+                'svg-fb-label':     '→ ステップ2に戻る',
+                'svg-client':       'クライアントの依頼',
+                'svg-client-sub':   '人間が要件を提供',
+                'svg-delivered':    '納品完了',
+                'svg-delivered-sub':'クライアントが製品を受け取る',
                 'svg-human':        '人間',
                 'svg-req':          '要件定義',
                 'svg-req-sub':      'AI解析・スコーピング',
@@ -882,6 +1154,20 @@
             }
         };
 
+        function switchAccelTab(tab) {
+            const tabs = ['build', 'lifecycle', 'model', 'agents'];
+            tabs.forEach(t => {
+                const panel = document.getElementById('accel-panel-' + t);
+                const btn = document.getElementById('accel-tab-btn-' + t);
+                if (panel) panel.classList.toggle('hidden', t !== tab);
+                if (btn) {
+                    btn.className = t === tab
+                        ? 'px-4 py-2 rounded-full transition-all bg-indigo-600 text-white'
+                        : 'px-4 py-2 rounded-full transition-all text-slate-400 hover:text-white';
+                }
+            });
+        }
+
         function setLang(lang) {
             const t = translations[lang];
             const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
@@ -893,6 +1179,7 @@
             set('t-nav-robotics', t['nav-robotics']);
             set('t-nav-web',      t['nav-web']);
             set('t-nav-mobile',   t['nav-mobile']);
+            set('t-nav-strategy', t['nav-strategy']);
             set('t-nav-lab',      t['nav-lab']);
             set('t-nav-contact',  t['nav-contact']);
             // Nav mobile
@@ -956,6 +1243,42 @@
             set('t-tech-h2',      t['tech-h2']);
             set('t-tech-p',       t['tech-p']);
             // Lab
+            set('t-strategy-label',   t['strategy-label']);
+            set('t-strategy-h',       t['strategy-h']);
+            set('t-strategy-p',       t['strategy-p']);
+            set('t-strategy-pipeline-h', t['strategy-pipeline-h']);
+            set('t-strategy-pipeline-tag', t['strategy-pipeline-tag']);
+            set('t-ai-hub-1',          t['ai-hub-1']);
+            set('t-ai-hub-2',          t['ai-hub-2']);
+            set('t-ai-pipe-1',        t['ai-pipe-1']);
+            set('t-ai-pipe-1-sub',    t['ai-pipe-1-sub']);
+            set('t-ai-pipe-2',        t['ai-pipe-2']);
+            set('t-ai-pipe-2-sub',    t['ai-pipe-2-sub']);
+            set('t-ai-pipe-3',        t['ai-pipe-3']);
+            set('t-ai-pipe-3-sub',    t['ai-pipe-3-sub']);
+            set('t-ai-pipe-4',        t['ai-pipe-4']);
+            set('t-ai-pipe-4-sub',    t['ai-pipe-4-sub']);
+            set('t-ai-pipe-5',        t['ai-pipe-5']);
+            set('t-ai-pipe-5-sub',    t['ai-pipe-5-sub']);
+            set('t-ai-pipe-loop',     t['ai-pipe-loop']);
+            set('t-strategy-model-h', t['strategy-model-h']);
+            set('t-strategy-model-p', t['strategy-model-p']);
+            set('t-model-1-h',        t['model-1-h']);
+            set('t-model-1-tag',      t['model-1-tag']);
+            set('t-model-1-p',        t['model-1-p']);
+            set('t-model-1-eg',       t['model-1-eg']);
+            set('t-model-2-h',        t['model-2-h']);
+            set('t-model-2-tag',      t['model-2-tag']);
+            set('t-model-2-p',        t['model-2-p']);
+            set('t-model-2-eg',       t['model-2-eg']);
+            set('t-model-3-h',        t['model-3-h']);
+            set('t-model-3-tag',      t['model-3-tag']);
+            set('t-model-3-p',        t['model-3-p']);
+            set('t-model-3-eg',       t['model-3-eg']);
+            set('t-model-4-h',        t['model-4-h']);
+            set('t-model-4-tag',      t['model-4-tag']);
+            set('t-model-4-p',        t['model-4-p']);
+            set('t-model-4-eg',       t['model-4-eg']);
             set('t-lab-label',      t['lab-label']);
             set('t-lab-badge',      t['lab-badge']);
             set('t-lab-meta',       t['lab-meta']);
@@ -979,7 +1302,19 @@
             set('t-lab-res3-label', t['lab-res3-label']);
             set('t-lab-res3-p',     t['lab-res3-p']);
             set('t-lab-sdlc-h',     t['lab-sdlc-h']);
+            set('t-accel-tabs-h',      t['accel-tabs-h']);
+            set('t-accel-tab-build',   t['accel-tab-build']);
+            set('t-accel-tab-lifecycle', t['accel-tab-lifecycle']);
+            set('t-accel-tab-model',   t['accel-tab-model']);
+            set('t-accel-tab-agents',  t['accel-tab-agents']);
+            set('t-lab-sdlc-tag',   t['lab-sdlc-tag']);
             // SVG diagram
+            set('t-svg-parallel-label', t['svg-parallel-label']);
+            set('t-svg-fb-label',       t['svg-fb-label']);
+            set('t-svg-client',         t['svg-client']);
+            set('t-svg-client-sub',   t['svg-client-sub']);
+            set('t-svg-delivered',    t['svg-delivered']);
+            set('t-svg-delivered-sub',t['svg-delivered-sub']);
             set('t-svg-ai1',          'AI');
             set('t-svg-ai2',          'AI');
             set('t-svg-human',        t['svg-human']);
@@ -1001,7 +1336,7 @@
             set('t-svg-legend-human', t['svg-legend-human']);
             set('t-svg-legend-feedback', t['svg-legend-fb']);
             set('t-svg-callout1',     t['svg-callout1']);
-            set('t-svg-callout2',     t['svg-callout2']);
+            // callout2 removed
             set('t-lab-agents-h',   t['lab-agents-h']);
             set('t-lab-agents-meta',t['lab-agents-meta']);
             // Modal
@@ -1039,5 +1374,176 @@
             document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
         }
     </script>
+    <!-- ── Kizuna AI Chat Widget ── -->
+    <div id="chat-widget" style="position:fixed; bottom:24px; right:24px; z-index:200; display:flex; flex-direction:column; align-items:flex-end; gap:12px;">
+
+        <!-- Chat window -->
+        <div id="chat-window" class="hidden flex-col w-[360px] max-h-[520px] rounded-[2rem] overflow-hidden shadow-2xl shadow-black/50 border border-white/10" style="background:#0f1224;">
+            <!-- Header -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-white/10" style="background:#1a1f3a;">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    </div>
+                    <div>
+                        <div class="text-white text-sm font-bold">Kizuna AI</div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                            <span class="text-slate-400 text-[10px]">Online · EN / 日本語</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white transition p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Messages -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto px-4 py-4 space-y-3" style="min-height:320px; max-height:360px;">
+                <!-- Welcome message -->
+                <div class="flex gap-2 items-start">
+                    <div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/></svg>
+                    </div>
+                    <div class="bg-slate-800/80 rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-slate-200 max-w-[260px]">
+                        Hi! I'm Kizuna's AI assistant. Ask me anything about our services, tech stack, or AI in general — in English or 日本語 🙂
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input -->
+            <div class="px-4 py-3 border-t border-white/10 flex gap-2 items-center" style="background:#1a1f3a;">
+                <input id="chat-input" type="text" placeholder="Ask anything..." autocomplete="off"
+                    style="flex:1; background:rgba(30,41,59,0.8); border:1px solid rgba(255,255,255,0.15); border-radius:9999px; padding:8px 16px; font-size:14px; color:#ffffff; outline:none;"
+                    onkeydown="if(event.key==='Enter') sendChatMessage()"
+                    onfocus="this.style.borderColor='rgba(99,102,241,0.7)'"
+                    onblur="this.style.borderColor='rgba(255,255,255,0.15)'"/>
+                <button onclick="sendChatMessage()" id="chat-send-btn"
+                    class="w-9 h-9 rounded-full bg-indigo-600 hover:bg-indigo-500 flex items-center justify-center flex-shrink-0 transition">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Toggle button -->
+        <button onclick="toggleChat()" id="chat-toggle-btn"
+            class="w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-500 shadow-xl shadow-indigo-500/30 flex items-center justify-center transition-all hover:scale-110">
+            <svg id="chat-icon-open" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+            <svg id="chat-icon-close" class="w-6 h-6 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+    </div>
+
+    <script>
+        // ── Chat widget ──────────────────────────────────────────────────────
+        const SYSTEM_PROMPT = `You are Kizuna AI, a helpful assistant for Kizuna Software Solutions — a software engineering company specialising in Cloud Infrastructure, AI & Machine Learning, Robotics & Systems, Web Applications, and Mobile Apps.
+
+About Kizuna:
+- Services: Cloud architecture & migration, AI/ML model development (PyTorch, TensorFlow, YOLOv5, LLMs, Generative AI, Agentic AI), ROS/SLAM robotics, React/Next.js web apps, Flutter/React Native mobile apps.
+- AI-driven development: Kizuna uses an internal AI-driven SDLC pipeline (Project Accelerate) that compresses delivery timelines by 35–40% and reduces QA bugs by 25%.
+- Coding agents used: GitHub Copilot, Cursor, Claude Code, Gemini Code Assist, Windsurf, Amazon Q.
+- Tech stack: PyTorch, TensorFlow, OpenCV, LLM/NLP, AWS, Azure, GCP, Snowflake, SLAM/IoT.
+
+You can also answer general questions about AI, software engineering, cloud, and technology.
+
+Detect the language of the user's message and always respond in the same language (English or Japanese). Keep responses concise, friendly, and helpful. If a question is about starting a project or pricing, encourage them to reach out via the contact form.`;
+
+        let chatHistory = [];
+        let chatOpen = false;
+        let isTyping = false;
+
+        function toggleChat() {
+            chatOpen = !chatOpen;
+            const win = document.getElementById('chat-window');
+            const iconOpen = document.getElementById('chat-icon-open');
+            const iconClose = document.getElementById('chat-icon-close');
+            if (chatOpen) {
+                win.classList.remove('hidden');
+                win.classList.add('flex');
+                iconOpen.classList.add('hidden');
+                iconClose.classList.remove('hidden');
+                document.getElementById('chat-input').focus();
+            } else {
+                win.classList.add('hidden');
+                win.classList.remove('flex');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            }
+        }
+
+        function appendMessage(role, text) {
+            const container = document.getElementById('chat-messages');
+            const isAI = role === 'assistant';
+            const div = document.createElement('div');
+            div.className = 'flex gap-2 items-start ' + (isAI ? '' : 'flex-row-reverse');
+            div.innerHTML = isAI
+                ? `<div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                       <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/></svg>
+                   </div>
+                   <div class="bg-slate-800/80 rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-slate-200 max-w-[260px] whitespace-pre-wrap">${text}</div>`
+                : `<div class="bg-indigo-600/80 rounded-2xl rounded-tr-sm px-4 py-3 text-sm text-white max-w-[260px]">${text}</div>`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            return div;
+        }
+
+        function appendTypingIndicator() {
+            const container = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.id = 'typing-indicator';
+            div.className = 'flex gap-2 items-start';
+            div.innerHTML = `<div class="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                   <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/></svg>
+               </div>
+               <div class="bg-slate-800/80 rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-slate-400 flex gap-1 items-center">
+                   <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay:0ms"></span>
+                   <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay:150ms"></span>
+                   <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay:300ms"></span>
+               </div>`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const el = document.getElementById('typing-indicator');
+            if (el) el.remove();
+        }
+
+        async function sendChatMessage() {
+            if (isTyping) return;
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            input.value = '';
+            appendMessage('user', text);
+            chatHistory.push({ role: 'user', content: text });
+
+            isTyping = true;
+            document.getElementById('chat-send-btn').disabled = true;
+            appendTypingIndicator();
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages: chatHistory })
+                });
+                const data = await response.json();
+                if (data.error) throw new Error(data.error.message || data.error);
+                const reply = data.content?.[0]?.text || 'Sorry, I could not get a response. Please try again.';
+                removeTypingIndicator();
+                appendMessage('assistant', reply);
+                chatHistory.push({ role: 'assistant', content: reply });
+            } catch (err) {
+                removeTypingIndicator();
+                appendMessage('assistant', 'Sorry, something went wrong. Please try again later.');
+            }
+
+            isTyping = false;
+            document.getElementById('chat-send-btn').disabled = false;
+            input.focus();
+        }
+    </script>
+
 </body>
 </html>
